@@ -18,7 +18,7 @@ GaussianBlurProcessor::~GaussianBlurProcessor()
     destroyAllWindows();
 }
 
-Mat GaussianBlurProcessor::applyGaussianBlur(int numThreads, int numAttempts = 1)
+Mat GaussianBlurProcessor::applyGaussianBlur(int numThreads, int numAttempts)
 {
     Mat blurredImage;
     double totalTime = 0;
@@ -58,11 +58,6 @@ Mat GaussianBlurProcessor::applyGaussianBlur(int numThreads, int numAttempts = 1
         int64 end = getTickCount();
         double duration = (end - start) / getTickFrequency();
         totalTime += duration;
-
-        // Optionally display the image if you want to view the result of each attempt
-        // imshow("Gaussian Blur (" + to_string(numThreads) + " Threads) - Attempt " + to_string(attempt), blurredImage);
-        // waitKey(0);
-        // destroyAllWindows();
     }
 
     double averageTime = totalTime / numAttempts;
@@ -119,7 +114,7 @@ void GaussianBlurProcessor::handleChoice(int choice)
             return;
         }
 
-        Mat blurredImage = applyGaussianBlur(threads);
+        Mat blurredImage = applyGaussianBlur(threads, 1);
         imshow("Gaussian Blur (" + to_string(threads) + " Threads)", blurredImage);
         waitKey(0);
         destroyAllWindows();

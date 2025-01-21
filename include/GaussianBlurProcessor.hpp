@@ -16,15 +16,22 @@ public:
     ~GaussianBlurProcessor();
 
     /**
-     * @brief Function to apply Gaussian blur with the specified number of threads
-     * @anchor applyGaussianBlur
-     * @param numThreads Number of threads to use for Gaussian blur
-     * @param numAttempts Number of attempts to apply Gaussian blur
-     * @return Blurred image
+     * @brief Applies Gaussian blur to an image using the specified number of threads.
+     *
+     * This function divides the image into regions and processes each region
+     * in parallel using the specified number of threads. Optionally, it can
+     * repeat the operation multiple times for benchmarking purposes.
+     *
+     * @param numThreads Number of threads to use for processing.
+     * @param numAttempts Number of attempts to repeat the operation.
+     * @return The resulting blurred image.
      */
     Mat applyGaussianBlur(int numThreads, int numAttempts);
 
-    // Function to save an image to disk
+    /** @brief saveImage to save the image to the specified filename
+     * @param image
+     * @param filename
+     */
     void saveImage(const Mat &image, const string &filename);
 
     // Function to choose user options
