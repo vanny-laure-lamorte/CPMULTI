@@ -3,8 +3,7 @@
         {
             "name": "Win32",
             "includePath": [
-                "${default}",
-                "C:/opencv/build/include"
+                "${default}"
             ],
             "defines": [
                 "_DEBUG",
@@ -13,7 +12,13 @@
             ],
             "cStandard": "c17",
             "cppStandard": "gnu++17",
-            "intelliSenseMode": "windows-gcc-x64"
+            "intelliSenseMode": "windows-gcc-x64",
+            "browse": {
+                "path": [
+                    "C:\\opencv\\build\\"
+                ],
+                "limitSymbolsToIncludedHeaders": false
+            }
         }
     ],
     "version": 4
