@@ -152,6 +152,54 @@ Main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
+src/InputValidator.obj: src/InputValidator.cpp.obj
+.PHONY : src/InputValidator.obj
+
+# target to build an object file
+src/InputValidator.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/InputValidator.cpp.obj
+.PHONY : src/InputValidator.cpp.obj
+
+src/InputValidator.i: src/InputValidator.cpp.i
+.PHONY : src/InputValidator.i
+
+# target to preprocess a source file
+src/InputValidator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/InputValidator.cpp.i
+.PHONY : src/InputValidator.cpp.i
+
+src/InputValidator.s: src/InputValidator.cpp.s
+.PHONY : src/InputValidator.s
+
+# target to generate assembly for a file
+src/InputValidator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/InputValidator.cpp.s
+.PHONY : src/InputValidator.cpp.s
+
+src/TerminalDisplay.obj: src/TerminalDisplay.cpp.obj
+.PHONY : src/TerminalDisplay.obj
+
+# target to build an object file
+src/TerminalDisplay.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/TerminalDisplay.cpp.obj
+.PHONY : src/TerminalDisplay.cpp.obj
+
+src/TerminalDisplay.i: src/TerminalDisplay.cpp.i
+.PHONY : src/TerminalDisplay.i
+
+# target to preprocess a source file
+src/TerminalDisplay.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/TerminalDisplay.cpp.i
+.PHONY : src/TerminalDisplay.cpp.i
+
+src/TerminalDisplay.s: src/TerminalDisplay.cpp.s
+.PHONY : src/TerminalDisplay.s
+
+# target to generate assembly for a file
+src/TerminalDisplay.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/TerminalDisplay.cpp.s
+.PHONY : src/TerminalDisplay.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -164,6 +212,12 @@ help:
 	@echo ... Main.obj
 	@echo ... Main.i
 	@echo ... Main.s
+	@echo ... src/InputValidator.obj
+	@echo ... src/InputValidator.i
+	@echo ... src/InputValidator.s
+	@echo ... src/TerminalDisplay.obj
+	@echo ... src/TerminalDisplay.i
+	@echo ... src/TerminalDisplay.s
 .PHONY : help
 
 
