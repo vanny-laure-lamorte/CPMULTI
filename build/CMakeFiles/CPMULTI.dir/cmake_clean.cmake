@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/CPMULTI.dir/src/Main.cpp.obj"
-  "CMakeFiles/CPMULTI.dir/src/Main.cpp.obj.d"
+  "CMakeFiles/CPMULTI.dir/Main.cpp.obj"
+  "CMakeFiles/CPMULTI.dir/Main.cpp.obj.d"
   "CPMULTI.exe"
   "CPMULTI.exe.manifest"
   "CPMULTI.pdb"

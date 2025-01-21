@@ -128,29 +128,29 @@ CPMULTI/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/build
 .PHONY : CPMULTI/fast
 
-src/Main.obj: src/Main.cpp.obj
-.PHONY : src/Main.obj
+Main.obj: Main.cpp.obj
+.PHONY : Main.obj
 
 # target to build an object file
-src/Main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/Main.cpp.obj
-.PHONY : src/Main.cpp.obj
+Main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/Main.cpp.obj
+.PHONY : Main.cpp.obj
 
-src/Main.i: src/Main.cpp.i
-.PHONY : src/Main.i
+Main.i: Main.cpp.i
+.PHONY : Main.i
 
 # target to preprocess a source file
-src/Main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/Main.cpp.i
-.PHONY : src/Main.cpp.i
+Main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/Main.cpp.i
+.PHONY : Main.cpp.i
 
-src/Main.s: src/Main.cpp.s
-.PHONY : src/Main.s
+Main.s: Main.cpp.s
+.PHONY : Main.s
 
 # target to generate assembly for a file
-src/Main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/Main.cpp.s
-.PHONY : src/Main.cpp.s
+Main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/Main.cpp.s
+.PHONY : Main.cpp.s
 
 # Help Target
 help:
@@ -161,9 +161,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... CPMULTI
-	@echo ... src/Main.obj
-	@echo ... src/Main.i
-	@echo ... src/Main.s
+	@echo ... Main.obj
+	@echo ... Main.i
+	@echo ... Main.s
 .PHONY : help
 
 

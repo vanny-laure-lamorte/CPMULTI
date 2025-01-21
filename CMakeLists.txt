@@ -12,7 +12,7 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 # Rechercher OpenCV
 find_package(OpenCV REQUIRED)
 
-add_executable(${PROJECT_NAME} src/Main.cpp)
+add_executable(${PROJECT_NAME} Main.cpp)
 
 # Lier les bibliothèques OpenCV
 target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})

@@ -68,29 +68,29 @@ include CMakeFiles/CPMULTI.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/CPMULTI.dir/flags.make
 
-CMakeFiles/CPMULTI.dir/src/Main.cpp.obj: CMakeFiles/CPMULTI.dir/flags.make
-CMakeFiles/CPMULTI.dir/src/Main.cpp.obj: CMakeFiles/CPMULTI.dir/includes_CXX.rsp
-CMakeFiles/CPMULTI.dir/src/Main.cpp.obj: C:/Users/Vanny\ Laure\ Lamorte/Plateforme/CPMULTI/src/Main.cpp
-CMakeFiles/CPMULTI.dir/src/Main.cpp.obj: CMakeFiles/CPMULTI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Vanny Laure Lamorte\Plateforme\CPMULTI\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CPMULTI.dir/src/Main.cpp.obj"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CPMULTI.dir/src/Main.cpp.obj -MF CMakeFiles\CPMULTI.dir\src\Main.cpp.obj.d -o CMakeFiles\CPMULTI.dir\src\Main.cpp.obj -c "C:\Users\Vanny Laure Lamorte\Plateforme\CPMULTI\src\Main.cpp"
+CMakeFiles/CPMULTI.dir/Main.cpp.obj: CMakeFiles/CPMULTI.dir/flags.make
+CMakeFiles/CPMULTI.dir/Main.cpp.obj: CMakeFiles/CPMULTI.dir/includes_CXX.rsp
+CMakeFiles/CPMULTI.dir/Main.cpp.obj: C:/Users/Vanny\ Laure\ Lamorte/Plateforme/CPMULTI/Main.cpp
+CMakeFiles/CPMULTI.dir/Main.cpp.obj: CMakeFiles/CPMULTI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Vanny Laure Lamorte\Plateforme\CPMULTI\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CPMULTI.dir/Main.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CPMULTI.dir/Main.cpp.obj -MF CMakeFiles\CPMULTI.dir\Main.cpp.obj.d -o CMakeFiles\CPMULTI.dir\Main.cpp.obj -c "C:\Users\Vanny Laure Lamorte\Plateforme\CPMULTI\Main.cpp"
 
-CMakeFiles/CPMULTI.dir/src/Main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CPMULTI.dir/src/Main.cpp.i"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Vanny Laure Lamorte\Plateforme\CPMULTI\src\Main.cpp" > CMakeFiles\CPMULTI.dir\src\Main.cpp.i
+CMakeFiles/CPMULTI.dir/Main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CPMULTI.dir/Main.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Vanny Laure Lamorte\Plateforme\CPMULTI\Main.cpp" > CMakeFiles\CPMULTI.dir\Main.cpp.i
 
-CMakeFiles/CPMULTI.dir/src/Main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CPMULTI.dir/src/Main.cpp.s"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Vanny Laure Lamorte\Plateforme\CPMULTI\src\Main.cpp" -o CMakeFiles\CPMULTI.dir\src\Main.cpp.s
+CMakeFiles/CPMULTI.dir/Main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CPMULTI.dir/Main.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Vanny Laure Lamorte\Plateforme\CPMULTI\Main.cpp" -o CMakeFiles\CPMULTI.dir\Main.cpp.s
 
 # Object files for target CPMULTI
 CPMULTI_OBJECTS = \
-"CMakeFiles/CPMULTI.dir/src/Main.cpp.obj"
+"CMakeFiles/CPMULTI.dir/Main.cpp.obj"
 
 # External object files for target CPMULTI
 CPMULTI_EXTERNAL_OBJECTS =
 
-CPMULTI.exe: CMakeFiles/CPMULTI.dir/src/Main.cpp.obj
+CPMULTI.exe: CMakeFiles/CPMULTI.dir/Main.cpp.obj
 CPMULTI.exe: CMakeFiles/CPMULTI.dir/build.make
 CPMULTI.exe: C:/opencv/build/x64/mingw/lib/libopencv_gapi455.dll.a
 CPMULTI.exe: C:/opencv/build/x64/mingw/lib/libopencv_highgui455.dll.a
