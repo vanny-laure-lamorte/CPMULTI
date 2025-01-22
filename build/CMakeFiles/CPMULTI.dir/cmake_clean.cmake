@@ -1,6 +1,12 @@
 file(REMOVE_RECURSE
   "CMakeFiles/CPMULTI.dir/Main.cpp.obj"
   "CMakeFiles/CPMULTI.dir/Main.cpp.obj.d"
+  "CMakeFiles/CPMULTI.dir/src/CannyEdgeDetection.cpp.obj"
+  "CMakeFiles/CPMULTI.dir/src/CannyEdgeDetection.cpp.obj.d"
+  "CMakeFiles/CPMULTI.dir/src/InputValidator.cpp.obj"
+  "CMakeFiles/CPMULTI.dir/src/InputValidator.cpp.obj.d"
+  "CMakeFiles/CPMULTI.dir/src/TerminalDisplay.cpp.obj"
+  "CMakeFiles/CPMULTI.dir/src/TerminalDisplay.cpp.obj.d"
   "CPMULTI.exe"
   "CPMULTI.exe.manifest"
   "CPMULTI.pdb"
