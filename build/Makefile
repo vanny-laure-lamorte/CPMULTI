@@ -152,6 +152,30 @@ Main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
+src/CannyEdgeDetection.obj: src/CannyEdgeDetection.cpp.obj
+.PHONY : src/CannyEdgeDetection.obj
+
+# target to build an object file
+src/CannyEdgeDetection.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/CannyEdgeDetection.cpp.obj
+.PHONY : src/CannyEdgeDetection.cpp.obj
+
+src/CannyEdgeDetection.i: src/CannyEdgeDetection.cpp.i
+.PHONY : src/CannyEdgeDetection.i
+
+# target to preprocess a source file
+src/CannyEdgeDetection.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/CannyEdgeDetection.cpp.i
+.PHONY : src/CannyEdgeDetection.cpp.i
+
+src/CannyEdgeDetection.s: src/CannyEdgeDetection.cpp.s
+.PHONY : src/CannyEdgeDetection.s
+
+# target to generate assembly for a file
+src/CannyEdgeDetection.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/CannyEdgeDetection.cpp.s
+.PHONY : src/CannyEdgeDetection.cpp.s
+
 src/InputValidator.obj: src/InputValidator.cpp.obj
 .PHONY : src/InputValidator.obj
 
@@ -212,6 +236,9 @@ help:
 	@echo ... Main.obj
 	@echo ... Main.i
 	@echo ... Main.s
+	@echo ... src/CannyEdgeDetection.obj
+	@echo ... src/CannyEdgeDetection.i
+	@echo ... src/CannyEdgeDetection.s
 	@echo ... src/InputValidator.obj
 	@echo ... src/InputValidator.i
 	@echo ... src/InputValidator.s

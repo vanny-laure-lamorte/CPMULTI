@@ -16,6 +16,7 @@ add_executable(${PROJECT_NAME}
     Main.cpp
     src/TerminalDisplay.cpp
     src/InputValidator.cpp
+    src/CannyEdgeDetection.cpp
     )
 
 # Lier les bibliothèques OpenCV

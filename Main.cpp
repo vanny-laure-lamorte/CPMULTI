@@ -1,4 +1,5 @@
 #include "include/TerminalDisplay.h"
+#include "include/CannyEdgeDetection.h"
 #include <iostream>
 #include <opencv2/opencv.hpp>
 
@@ -7,6 +8,10 @@ using namespace cv;
 
 int main()
 {
-    TerminalDisplay terminalDisplay;
-    terminalDisplay.displayWelcomeMessage();
+    CannyEdgeDetection cannyEdgeDetection;
+
+    cannyEdgeDetection.runCannyEdgeDetection();
+
+    // TerminalDisplay terminalDisplay;
+    // terminalDisplay.displayWelcomeMessage();
 };
