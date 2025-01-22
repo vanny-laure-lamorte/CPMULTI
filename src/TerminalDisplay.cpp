@@ -46,6 +46,6 @@ int TerminalDisplay::displayMenu() {
             << "> Please choose an option: ";
         
         cin >> choice;    
-    } while (!inputValidator.isValidDigit(choice));
+    } while (!inputValidator.isValidDigit(choice, 8));
     return choice; 
 }

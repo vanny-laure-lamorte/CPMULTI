@@ -2,8 +2,8 @@
 #include <iostream>
 using namespace std;
 
-bool InputValidator::isValidDigit(int userInput){
-    if (userInput >= 0 && userInput <= 8){
+bool InputValidator::isValidDigit(int userInput, int maxOption){
+    if (userInput >= 0 && userInput <= maxOption){
         return true;
     }
     else

@@ -7,10 +7,12 @@
 class InputValidator {
 public:
 
-    /* Validate only numbers between 0 and 8
-    * return bool userInput
+    /** Validate only numbers between 0 and X (max option)
+    * @param int userInput
+    * @param int maxOption
+    * @return bool userInput
     */
-   bool isValidDigit(int userInput); 
+   bool isValidDigit(int userInput, int maxOption); 
     
 private:
 
