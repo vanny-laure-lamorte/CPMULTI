@@ -56,10 +56,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Vanny Laure Lamorte\Plateforme\CPMULTI"
+CMAKE_SOURCE_DIR = C:\Users\lucas\Desktop\2025\CPMULTI
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Vanny Laure Lamorte\Plateforme\CPMULTI\build"
+CMAKE_BINARY_DIR = C:\Users\lucas\Desktop\2025\CPMULTI\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Vanny Laure Lamorte\Plateforme\CPMULTI\build\CMakeFiles" "C:\Users\Vanny Laure Lamorte\Plateforme\CPMULTI\build\\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\lucas\Desktop\2025\CPMULTI\build\CMakeFiles C:\Users\lucas\Desktop\2025\CPMULTI\build\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Vanny Laure Lamorte\Plateforme\CPMULTI\build\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\lucas\Desktop\2025\CPMULTI\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -152,6 +152,54 @@ Main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
+src/CannyEdgeDetection.obj: src/CannyEdgeDetection.cpp.obj
+.PHONY : src/CannyEdgeDetection.obj
+
+# target to build an object file
+src/CannyEdgeDetection.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/CannyEdgeDetection.cpp.obj
+.PHONY : src/CannyEdgeDetection.cpp.obj
+
+src/CannyEdgeDetection.i: src/CannyEdgeDetection.cpp.i
+.PHONY : src/CannyEdgeDetection.i
+
+# target to preprocess a source file
+src/CannyEdgeDetection.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/CannyEdgeDetection.cpp.i
+.PHONY : src/CannyEdgeDetection.cpp.i
+
+src/CannyEdgeDetection.s: src/CannyEdgeDetection.cpp.s
+.PHONY : src/CannyEdgeDetection.s
+
+# target to generate assembly for a file
+src/CannyEdgeDetection.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/CannyEdgeDetection.cpp.s
+.PHONY : src/CannyEdgeDetection.cpp.s
+
+src/GaussianBlurProcessor.obj: src/GaussianBlurProcessor.cpp.obj
+.PHONY : src/GaussianBlurProcessor.obj
+
+# target to build an object file
+src/GaussianBlurProcessor.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/GaussianBlurProcessor.cpp.obj
+.PHONY : src/GaussianBlurProcessor.cpp.obj
+
+src/GaussianBlurProcessor.i: src/GaussianBlurProcessor.cpp.i
+.PHONY : src/GaussianBlurProcessor.i
+
+# target to preprocess a source file
+src/GaussianBlurProcessor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/GaussianBlurProcessor.cpp.i
+.PHONY : src/GaussianBlurProcessor.cpp.i
+
+src/GaussianBlurProcessor.s: src/GaussianBlurProcessor.cpp.s
+.PHONY : src/GaussianBlurProcessor.s
+
+# target to generate assembly for a file
+src/GaussianBlurProcessor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/GaussianBlurProcessor.cpp.s
+.PHONY : src/GaussianBlurProcessor.cpp.s
+
 src/InputValidator.obj: src/InputValidator.cpp.obj
 .PHONY : src/InputValidator.obj
 
@@ -212,6 +260,12 @@ help:
 	@echo ... Main.obj
 	@echo ... Main.i
 	@echo ... Main.s
+	@echo ... src/CannyEdgeDetection.obj
+	@echo ... src/CannyEdgeDetection.i
+	@echo ... src/CannyEdgeDetection.s
+	@echo ... src/GaussianBlurProcessor.obj
+	@echo ... src/GaussianBlurProcessor.i
+	@echo ... src/GaussianBlurProcessor.s
 	@echo ... src/InputValidator.obj
 	@echo ... src/InputValidator.i
 	@echo ... src/InputValidator.s

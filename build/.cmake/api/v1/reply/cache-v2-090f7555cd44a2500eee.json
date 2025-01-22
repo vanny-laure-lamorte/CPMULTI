@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/Vanny Laure Lamorte/Plateforme/CPMULTI/build"
+			"value" : "c:/Users/lucas/Desktop/2025/CPMULTI/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -587,7 +587,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Vanny Laure Lamorte/Plateforme/CPMULTI/build/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/lucas/Desktop/2025/CPMULTI/build/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -659,7 +659,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/Vanny Laure Lamorte/Plateforme/CPMULTI"
+			"value" : "C:/Users/lucas/Desktop/2025/CPMULTI"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1295,7 +1295,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Vanny Laure Lamorte/Plateforme/CPMULTI/build"
+			"value" : "C:/Users/lucas/Desktop/2025/CPMULTI/build"
 		},
 		{
 			"name" : "CPMULTI_IS_TOP_LEVEL",
@@ -1319,7 +1319,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Vanny Laure Lamorte/Plateforme/CPMULTI"
+			"value" : "C:/Users/lucas/Desktop/2025/CPMULTI"
 		},
 		{
 			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_OpenCV",
@@ -1332,6 +1332,18 @@
 			],
 			"type" : "INTERNAL",
 			"value" : "[C:/opencv/build][v4.5.5()]"
+		},
+		{
+			"name" : "OpenCV_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for OpenCV."
+				}
+			],
+			"type" : "PATH",
+			"value" : "OpenCV_DIR-NOTFOUND"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",

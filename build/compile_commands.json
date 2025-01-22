@@ -1,20 +1,32 @@
 [
 {
-  "directory": "C:/Users/Vanny Laure Lamorte/Plateforme/CPMULTI/build",
-  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/CPMULTI.dir/includes_CXX.rsp -g -o CMakeFiles\\CPMULTI.dir\\Main.cpp.obj -c \"C:\\Users\\Vanny Laure Lamorte\\Plateforme\\CPMULTI\\Main.cpp\"",
-  "file": "C:/Users/Vanny Laure Lamorte/Plateforme/CPMULTI/Main.cpp",
+  "directory": "C:/Users/lucas/Desktop/2025/CPMULTI/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/CPMULTI.dir/includes_CXX.rsp -g -o CMakeFiles\\CPMULTI.dir\\Main.cpp.obj -c C:\\Users\\lucas\\Desktop\\2025\\CPMULTI\\Main.cpp",
+  "file": "C:/Users/lucas/Desktop/2025/CPMULTI/Main.cpp",
   "output": "CMakeFiles/CPMULTI.dir/Main.cpp.obj"
 },
 {
-  "directory": "C:/Users/Vanny Laure Lamorte/Plateforme/CPMULTI/build",
-  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/CPMULTI.dir/includes_CXX.rsp -g -o CMakeFiles\\CPMULTI.dir\\src\\TerminalDisplay.cpp.obj -c \"C:\\Users\\Vanny Laure Lamorte\\Plateforme\\CPMULTI\\src\\TerminalDisplay.cpp\"",
-  "file": "C:/Users/Vanny Laure Lamorte/Plateforme/CPMULTI/src/TerminalDisplay.cpp",
+  "directory": "C:/Users/lucas/Desktop/2025/CPMULTI/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/CPMULTI.dir/includes_CXX.rsp -g -o CMakeFiles\\CPMULTI.dir\\src\\TerminalDisplay.cpp.obj -c C:\\Users\\lucas\\Desktop\\2025\\CPMULTI\\src\\TerminalDisplay.cpp",
+  "file": "C:/Users/lucas/Desktop/2025/CPMULTI/src/TerminalDisplay.cpp",
   "output": "CMakeFiles/CPMULTI.dir/src/TerminalDisplay.cpp.obj"
 },
 {
-  "directory": "C:/Users/Vanny Laure Lamorte/Plateforme/CPMULTI/build",
-  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/CPMULTI.dir/includes_CXX.rsp -g -o CMakeFiles\\CPMULTI.dir\\src\\InputValidator.cpp.obj -c \"C:\\Users\\Vanny Laure Lamorte\\Plateforme\\CPMULTI\\src\\InputValidator.cpp\"",
-  "file": "C:/Users/Vanny Laure Lamorte/Plateforme/CPMULTI/src/InputValidator.cpp",
+  "directory": "C:/Users/lucas/Desktop/2025/CPMULTI/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/CPMULTI.dir/includes_CXX.rsp -g -o CMakeFiles\\CPMULTI.dir\\src\\InputValidator.cpp.obj -c C:\\Users\\lucas\\Desktop\\2025\\CPMULTI\\src\\InputValidator.cpp",
+  "file": "C:/Users/lucas/Desktop/2025/CPMULTI/src/InputValidator.cpp",
   "output": "CMakeFiles/CPMULTI.dir/src/InputValidator.cpp.obj"
+},
+{
+  "directory": "C:/Users/lucas/Desktop/2025/CPMULTI/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/CPMULTI.dir/includes_CXX.rsp -g -o CMakeFiles\\CPMULTI.dir\\src\\GaussianBlurProcessor.cpp.obj -c C:\\Users\\lucas\\Desktop\\2025\\CPMULTI\\src\\GaussianBlurProcessor.cpp",
+  "file": "C:/Users/lucas/Desktop/2025/CPMULTI/src/GaussianBlurProcessor.cpp",
+  "output": "CMakeFiles/CPMULTI.dir/src/GaussianBlurProcessor.cpp.obj"
+},
+{
+  "directory": "C:/Users/lucas/Desktop/2025/CPMULTI/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/CPMULTI.dir/includes_CXX.rsp -g -o CMakeFiles\\CPMULTI.dir\\src\\CannyEdgeDetection.cpp.obj -c C:\\Users\\lucas\\Desktop\\2025\\CPMULTI\\src\\CannyEdgeDetection.cpp",
+  "file": "C:/Users/lucas/Desktop/2025/CPMULTI/src/CannyEdgeDetection.cpp",
+  "output": "CMakeFiles/CPMULTI.dir/src/CannyEdgeDetection.cpp.obj"
 }
 ]
