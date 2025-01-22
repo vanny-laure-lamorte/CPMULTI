@@ -4,6 +4,7 @@
             "name": "Win32",
             "includePath": [
                 "${default}",
+                "C:/opencv/build/include",
                 "${workspaceFolder}/include"
             ],
             "defines": [

@@ -151,7 +151,30 @@ Main.s: Main.cpp.s
 Main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/Main.cpp.s
 .PHONY : Main.cpp.s
-<<<<<<< HEAD
+
+src/CannyEdgeDetection.obj: src/CannyEdgeDetection.cpp.obj
+.PHONY : src/CannyEdgeDetection.obj
+
+# target to build an object file
+src/CannyEdgeDetection.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/CannyEdgeDetection.cpp.obj
+.PHONY : src/CannyEdgeDetection.cpp.obj
+
+src/CannyEdgeDetection.i: src/CannyEdgeDetection.cpp.i
+.PHONY : src/CannyEdgeDetection.i
+
+# target to preprocess a source file
+src/CannyEdgeDetection.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/CannyEdgeDetection.cpp.i
+.PHONY : src/CannyEdgeDetection.cpp.i
+
+src/CannyEdgeDetection.s: src/CannyEdgeDetection.cpp.s
+.PHONY : src/CannyEdgeDetection.s
+
+# target to generate assembly for a file
+src/CannyEdgeDetection.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/CannyEdgeDetection.cpp.s
+.PHONY : src/CannyEdgeDetection.cpp.s
 
 src/GaussianBlurProcessor.obj: src/GaussianBlurProcessor.cpp.obj
 .PHONY : src/GaussianBlurProcessor.obj
@@ -176,8 +199,54 @@ src/GaussianBlurProcessor.s: src/GaussianBlurProcessor.cpp.s
 src/GaussianBlurProcessor.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/GaussianBlurProcessor.cpp.s
 .PHONY : src/GaussianBlurProcessor.cpp.s
-=======
->>>>>>> develop
+
+src/InputValidator.obj: src/InputValidator.cpp.obj
+.PHONY : src/InputValidator.obj
+
+# target to build an object file
+src/InputValidator.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/InputValidator.cpp.obj
+.PHONY : src/InputValidator.cpp.obj
+
+src/InputValidator.i: src/InputValidator.cpp.i
+.PHONY : src/InputValidator.i
+
+# target to preprocess a source file
+src/InputValidator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/InputValidator.cpp.i
+.PHONY : src/InputValidator.cpp.i
+
+src/InputValidator.s: src/InputValidator.cpp.s
+.PHONY : src/InputValidator.s
+
+# target to generate assembly for a file
+src/InputValidator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/InputValidator.cpp.s
+.PHONY : src/InputValidator.cpp.s
+
+src/TerminalDisplay.obj: src/TerminalDisplay.cpp.obj
+.PHONY : src/TerminalDisplay.obj
+
+# target to build an object file
+src/TerminalDisplay.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/TerminalDisplay.cpp.obj
+.PHONY : src/TerminalDisplay.cpp.obj
+
+src/TerminalDisplay.i: src/TerminalDisplay.cpp.i
+.PHONY : src/TerminalDisplay.i
+
+# target to preprocess a source file
+src/TerminalDisplay.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/TerminalDisplay.cpp.i
+.PHONY : src/TerminalDisplay.cpp.i
+
+src/TerminalDisplay.s: src/TerminalDisplay.cpp.s
+.PHONY : src/TerminalDisplay.s
+
+# target to generate assembly for a file
+src/TerminalDisplay.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/TerminalDisplay.cpp.s
+.PHONY : src/TerminalDisplay.cpp.s
 
 # Help Target
 help:
@@ -191,12 +260,18 @@ help:
 	@echo ... Main.obj
 	@echo ... Main.i
 	@echo ... Main.s
-<<<<<<< HEAD
+	@echo ... src/CannyEdgeDetection.obj
+	@echo ... src/CannyEdgeDetection.i
+	@echo ... src/CannyEdgeDetection.s
 	@echo ... src/GaussianBlurProcessor.obj
 	@echo ... src/GaussianBlurProcessor.i
 	@echo ... src/GaussianBlurProcessor.s
-=======
->>>>>>> develop
+	@echo ... src/InputValidator.obj
+	@echo ... src/InputValidator.i
+	@echo ... src/InputValidator.s
+	@echo ... src/TerminalDisplay.obj
+	@echo ... src/TerminalDisplay.i
+	@echo ... src/TerminalDisplay.s
 .PHONY : help
 
 
