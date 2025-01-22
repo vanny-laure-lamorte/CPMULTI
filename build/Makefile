@@ -151,6 +151,7 @@ Main.s: Main.cpp.s
 Main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/Main.cpp.s
 .PHONY : Main.cpp.s
+<<<<<<< HEAD
 
 src/GaussianBlurProcessor.obj: src/GaussianBlurProcessor.cpp.obj
 .PHONY : src/GaussianBlurProcessor.obj
@@ -175,6 +176,8 @@ src/GaussianBlurProcessor.s: src/GaussianBlurProcessor.cpp.s
 src/GaussianBlurProcessor.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPMULTI.dir\build.make CMakeFiles/CPMULTI.dir/src/GaussianBlurProcessor.cpp.s
 .PHONY : src/GaussianBlurProcessor.cpp.s
+=======
+>>>>>>> develop
 
 # Help Target
 help:
@@ -188,9 +191,12 @@ help:
 	@echo ... Main.obj
 	@echo ... Main.i
 	@echo ... Main.s
+<<<<<<< HEAD
 	@echo ... src/GaussianBlurProcessor.obj
 	@echo ... src/GaussianBlurProcessor.i
 	@echo ... src/GaussianBlurProcessor.s
+=======
+>>>>>>> develop
 .PHONY : help
 
 
