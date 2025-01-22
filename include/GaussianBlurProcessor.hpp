@@ -4,7 +4,7 @@
 #include <opencv2/opencv.hpp>
 #include <thread>
 #include <vector>
-
+#include "TerminalDisplay.h"
 using namespace cv;
 using namespace std;
 

@@ -90,21 +90,8 @@ void GaussianBlurProcessor::userChoice()
     }
 }
 
-void GaussianBlurProcessor::displayMenu()
-{
-    cout << "\n----- Gaussian Blur Options -----\n";
-    cout << "1. Apply Gaussian Blur with a custom number of threads\n";
-    cout << "2. Perform multiple attempts with a constant number of threads\n";
-    cout << "3. Perform 1000 attempts with varying numbers of threads\n";
-    cout << "0. Exit\n";
-    cout << "----------------------------------\n";
-    cout << "Please enter an option (0-3): ";
-}
-
-void GaussianBlurProcessor::handleChoice(int choice)
-{
-    if (choice == 1)
-    {
+void GaussianBlurProcessor::handleChoice(int choice){
+    if (choice == 1){
         int threads;
         cout << "Enter number of threads to apply Gaussian Blur: ";
         cin >> threads;
@@ -118,8 +105,7 @@ void GaussianBlurProcessor::handleChoice(int choice)
         imshow("Gaussian Blur (" + to_string(threads) + " Threads)", blurredImage);
         waitKey(0);
         destroyAllWindows();
-    }
-    else if (choice == 2)
+    }else if (choice == 2)
     {
         int numAttempts, numThreads;
         cout << "Enter number of attempts: ";
@@ -133,8 +119,7 @@ void GaussianBlurProcessor::handleChoice(int choice)
         }
 
         applyGaussianBlur(numThreads, numAttempts);
-    }
-    else if (choice == 3)
+    }else if (choice == 3)
     {
         int numAttempts;
         int numThreads;
@@ -160,10 +145,7 @@ void GaussianBlurProcessor::handleChoice(int choice)
         {
             applyGaussianBlur(threads, numAttempts);
         }
-    }
-
-    else
-    {
+    }else{
         cout << "Invalid option! Please choose a valid option from the menu.\n";
     }
 }

@@ -11,8 +11,8 @@ int main() {
     GaussianBlurProcessor gaussianBlurProcessor;
     gaussianBlurProcessor.userChoice();
 
-    // CannyEdgeDetection cannyEdgeDetection;
-    // cannyEdgeDetection.runCannyEdgeDetection();
+    CannyEdgeDetection cannyEdgeDetection;
+    cannyEdgeDetection.runCannyEdgeDetection();
 
     // TerminalDisplay terminalDisplay;
     // terminalDisplay.displayWelcomeMessage();
