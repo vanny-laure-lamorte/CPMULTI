@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/lucas/Desktop/2025/CPMULTI
+# Install script for directory: C:/Users/Vanny Laure Lamorte/Plateforme/CPMULTI
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -52,6 +52,6 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-  file(WRITE "C:/Users/lucas/Desktop/2025/CPMULTI/build/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "C:/Users/Vanny Laure Lamorte/Plateforme/CPMULTI/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

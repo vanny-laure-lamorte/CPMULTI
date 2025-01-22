@@ -1,5 +1,5 @@
-#ifndef INPUTVALIDATOR_H
-#define INPUTVALIDATOR_H
+#ifndef INPUTVALIDATOR_HPP
+#define INPUTVALIDATOR_HPP
 
 #include <string>
 #include <regex>
@@ -18,4 +18,4 @@ private:
 
 };
 
-#endif // INPUTVALIDATOR_H
+#endif // INPUTVALIDATOR_HPP

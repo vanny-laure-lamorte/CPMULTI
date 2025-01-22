@@ -1,4 +1,4 @@
-#include "../include/CannyEdgeDetection.h"
+#include "../include/CannyEdgeDetection.hpp"
 
 
 void CannyEdgeDetection::CannyThreshold(int, void*)
