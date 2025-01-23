@@ -7,7 +7,7 @@
 #include <thread>
 #include <vector>
 #include "matplotlibcpp.h"
-
+#include "TerminalDisplay.hpp"
 using namespace cv;
 using namespace std;
 

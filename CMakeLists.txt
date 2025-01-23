@@ -4,7 +4,12 @@ project(CPMULTI)
 # Specify the path to OpenCV
 set(OpenCV_DIR C:/opencv/build)
 find_package(OpenCV REQUIRED)
+
 find_package(Python3 REQUIRED COMPONENTS Development NumPy)
+if (NOT Python3_FOUND)
+set(Python3_EXECUTABLE "C:\\Users\\Vanny Laure Lamorte\\AppData\\Local\\Programs\\Python\\Python312\\python.exe")
+find_package(Python3 COMPONENTS Interpreter NumPy REQUIRED)
+endif()
 
 # Include OpenCV headers
 include_directories(
