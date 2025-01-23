@@ -23,6 +23,13 @@ add_executable(${PROJECT_NAME} Main.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
+# Todo use the following command line to build the project :
+#into C:\Users\tslem\Desktop\Laplateforme\bachelore2\depot\Cpp\projetGroupe\Mutexisation\CPMULTI\build
+# cmake -G "MinGW Makefiles" -S . -B build
+# "_commentaire": "cmake --build preset release",
+# "_commentaire":  "cmake --build --preset default",
+# cmake --build .
+
 # hardcore link below
 # target_link_libraries(main
 #     ${OpenCV_LIBS}
