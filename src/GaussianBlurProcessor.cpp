@@ -80,101 +80,19 @@ void GaussianBlurProcessor::graphThreads()
     plotGraph(threadCounts, averageTimes, "Average Time vs. Threads", "Threads", "Average Time (s)");
 }
 
-void GaussianBlurProcessor::userChoice()
+
+void GaussianBlurProcessor::GaussianBlurWithCustomThreads(int threads)
 {
-    int choice;
-
-    while (true)
-    {
-        displayMenu();
-        cin >> choice;
-
-        if (choice == 0)
-        {
-            cout << "Exiting...\n";
-            break;
-        }
-
-        handleChoice(choice);
-    }
+    auto [blurredImage, averageTime] = applyGaussianBlur(threads);
+    imshow("Gaussian Blur", blurredImage);
+    waitKey(0);
+    destroyAllWindows();
 }
 
-void GaussianBlurProcessor::displayMenu()
-{
-    cout << "\n----- Gaussian Blur Options -----\n";
-    cout << "1. Apply Gaussian Blur with a custom number of threads\n";
-    cout << "2. Graph average time vs. number of threads (1, 2, 4, 8, 16, 32 threads)\n";
-    cout << "3. Custom Gaussian Blur level\n";
-    cout << "0. Exit\n";
-    cout << "----------------------------------\n";
-    cout << "Please enter an option (0-3): ";
-}
-
-void GaussianBlurProcessor::handleChoice(int choice)
-{
-    switch (choice)
-    {
-    case 1:
-    {
-        int threads;
-        cout << "Enter number of threads: ";
-        cin >> threads;
-        auto [blurredImage, averageTime] = applyGaussianBlur(threads);
-        imshow("Gaussian Blur", blurredImage);
-        waitKey(0);
-        destroyAllWindows();
-        break;
-    }
-    case 2:
-    {
-        graphThreads();
-        break;
-    }
-    case 3:
-    {
-        int kernelOption;
-        cout << "\n----- Choose Kernel Size -----\n";
-        cout << "1. Low blur\n";
-        cout << "2. Medium blur\n";
-        cout << "3. High blur\n";
-        cout << "4. Very High blur\n";
-        cout << "0. Exit\n";
-        cin >> kernelOption;
-
-        Size kernelSize;
-        switch (kernelOption)
-        {
-        case 1:
-            kernelSize = Size(5, 5);
-            break;
-        case 2:
-            kernelSize = Size(15, 15);
-            break;
-        case 3:
-            kernelSize = Size(31, 31);
-            break;
-        case 4:
-            kernelSize = Size(61, 61);
-            break;
-        case 0:
-            return;
-        default:
-            cout << "Invalid option\n";
-            return;
-        }
-
-        Mat blurredImage;
-        GaussianBlur(image, blurredImage, kernelSize, 0);
-        imshow("Gaussian Blur", blurredImage);
-        waitKey(0);
-        destroyAllWindows();
-        break;
-    }
-    case 0:
-        cout << "Exiting...\n";
-        break;
-    default:
-        cout << "Invalid option\n";
-        break;
-    }
+void GaussianBlurProcessor::customGaussianBlurIntensity(Size intensity){
+    Mat blurredImage;
+    GaussianBlur(image, blurredImage, intensity, 0);
+    imshow("Gaussian Blur", blurredImage);
+    waitKey(0);
+    destroyAllWindows();
 }

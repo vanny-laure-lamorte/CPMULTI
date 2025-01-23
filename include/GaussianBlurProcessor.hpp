@@ -70,16 +70,28 @@ public:
     void userChoice();
 
     /**
-     * @brief Displays processing options menu
-     */
-    void displayMenu();
-
-    /**
      * @brief Handles user menu selection
      * 
      * @param choice Selected menu option
      */
     void handleChoice(int choice);
+
+    /**
+     * @brief Applies Gaussian blur with custom number of threads
+     * 
+     * @param threads Number of threads for parallel processing
+    */
+    void GaussianBlurWithCustomThreads(int threads);
+
+    /**
+     * @brief Applies Gaussian blur with custom intensity
+     * 
+     * @param intensity Custom intensity for Gaussian blur
+     * The more intense the blur, the more the image is blurred
+     */
+    void customGaussianBlurIntensity(Size intensity);
+
+
 };
 
 #endif // GAUSSIAN_BLUR_PROCESSOR_HPP
