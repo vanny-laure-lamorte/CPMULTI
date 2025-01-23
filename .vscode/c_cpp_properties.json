@@ -5,7 +5,7 @@
             "includePath": [
                 "${default}",
                 "C:/opencv/build/include",
-                "${workspaceFolder}/include",
+                "${workspaceFolder}",
                 "${workspaceFolder}"
             ],
             "defines": [
