@@ -373,7 +373,6 @@ CMakeFiles/CPMULTI.dir/Main.cpp.obj: C:/Users/Vanny\ Laure\ Lamorte/Plateforme/C
   C:/opencv/build/include/opencv2/video/background_segm.hpp \
   C:/opencv/build/include/opencv2/video/tracking.hpp \
   C:/opencv/build/include/opencv2/videoio.hpp \
-  C:/Users/Vanny\ Laure\ Lamorte/Plateforme/CPMULTI/include/CannyEdgeDetection.hpp \
   C:/Users/Vanny\ Laure\ Lamorte/Plateforme/CPMULTI/include/GaussianBlurProcessor.hpp \
   C:/Users/Vanny\ Laure\ Lamorte/Plateforme/CPMULTI/include/InputValidator.hpp \
   C:/Users/Vanny\ Laure\ Lamorte/Plateforme/CPMULTI/include/TerminalDisplay.hpp
@@ -459,6 +458,7 @@ CMakeFiles/CPMULTI.dir/src/CannyEdgeDetection.cpp.obj: C:/Users/Vanny\ Laure\ La
   C:/msys64/mingw64/include/c++/14.2.0/bits/std_abs.h \
   C:/msys64/mingw64/include/c++/14.2.0/bits/std_function.h \
   C:/msys64/mingw64/include/c++/14.2.0/bits/std_mutex.h \
+  C:/msys64/mingw64/include/c++/14.2.0/bits/std_thread.h \
   C:/msys64/mingw64/include/c++/14.2.0/bits/stl_algo.h \
   C:/msys64/mingw64/include/c++/14.2.0/bits/stl_algobase.h \
   C:/msys64/mingw64/include/c++/14.2.0/bits/stl_bvector.h \
@@ -486,6 +486,7 @@ CMakeFiles/CPMULTI.dir/src/CannyEdgeDetection.cpp.obj: C:/Users/Vanny\ Laure\ La
   C:/msys64/mingw64/include/c++/14.2.0/bits/streambuf_iterator.h \
   C:/msys64/mingw64/include/c++/14.2.0/bits/string_view.tcc \
   C:/msys64/mingw64/include/c++/14.2.0/bits/stringfwd.h \
+  C:/msys64/mingw64/include/c++/14.2.0/bits/this_thread_sleep.h \
   C:/msys64/mingw64/include/c++/14.2.0/bits/uniform_int_dist.h \
   C:/msys64/mingw64/include/c++/14.2.0/bits/unique_lock.h \
   C:/msys64/mingw64/include/c++/14.2.0/bits/unique_ptr.h \
@@ -554,6 +555,7 @@ CMakeFiles/CPMULTI.dir/src/CannyEdgeDetection.cpp.obj: C:/Users/Vanny\ Laure\ La
   C:/msys64/mingw64/include/c++/14.2.0/string \
   C:/msys64/mingw64/include/c++/14.2.0/string_view \
   C:/msys64/mingw64/include/c++/14.2.0/system_error \
+  C:/msys64/mingw64/include/c++/14.2.0/thread \
   C:/msys64/mingw64/include/c++/14.2.0/tr1/bessel_function.tcc \
   C:/msys64/mingw64/include/c++/14.2.0/tr1/beta_function.tcc \
   C:/msys64/mingw64/include/c++/14.2.0/tr1/ell_integral.tcc \
@@ -1287,7 +1289,6 @@ CMakeFiles/CPMULTI.dir/src/InputValidator.cpp.obj: C:/Users/Vanny\ Laure\ Lamort
   C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/syslimits.h
 
 CMakeFiles/CPMULTI.dir/src/TerminalDisplay.cpp.obj: C:/Users/Vanny\ Laure\ Lamorte/Plateforme/CPMULTI/src/TerminalDisplay.cpp \
-  C:/Users/Vanny\ Laure\ Lamorte/Plateforme/CPMULTI/include/CannyEdgeDetection.hpp \
   C:/Users/Vanny\ Laure\ Lamorte/Plateforme/CPMULTI/include/GaussianBlurProcessor.hpp \
   C:/Users/Vanny\ Laure\ Lamorte/Plateforme/CPMULTI/include/InputValidator.hpp \
   C:/Users/Vanny\ Laure\ Lamorte/Plateforme/CPMULTI/include/TerminalDisplay.hpp \
