@@ -1,7 +1,7 @@
 #include "../include/TerminalDisplay.hpp"
 
 InputValidator inputValidator;
-CannyEdgeDetection cannyEdgeDetection;
+// CannyEdgeDetection cannyEdgeDetection;
 GaussianBlurProcessor gaussianBlurProcessor;  
 
 void TerminalDisplay::displayWelcomeMessage() {
@@ -39,10 +39,10 @@ int TerminalDisplay::displayMenu() {
             << "       *      (7) Rotation                         *\n"
             << "       *      (8) Sobel Filter                     *\n"
             << "       *                                           *\n"
-            << "       *      (0) Quit                             *\n"
+            << "       *      (9) Quit                             *\n"
             << "       *                                           *\n"
             << "       * * * * * * * * * * * * * * * * * * * * * * * \n\n"
-            << "> Here is the option you have chosen: ";        
+            << "> Select an option from the menu to continue: ";        
         cin >> choice;    
 
         if (cin.fail()) {
@@ -87,13 +87,9 @@ void TerminalDisplay::handleMenuChoice(int userMenuChoice) {
 
         switch (userMenuChoice)
         {
-        case 0: 
-            cout << endl << endl << "Goodbye. Hope to see you soon ! :)" << endl << endl;
-            exit(0);
-            break;
         case 1:
             cout << "You chose: Canny Edge Detection" << endl; // Debug
-            cannyEdgeDetection.runCannyEdgeDetection();
+            // cannyEdgeDetection.runCannyEdgeDetection();
             break;
         case 2:
             cout << "You chose: Denoising" << endl; // Debug
@@ -115,14 +111,88 @@ void TerminalDisplay::handleMenuChoice(int userMenuChoice) {
             cout << "You chose: Rotation" << endl; // Debug
             break;
         case 8:
-            cout << "You chose:  Sobel Filter" << endl;
+            cout << "You chose:  Sobel Filter" << endl; // Debug
             break;
-        case 9:
-            // SECTION FOR TESTING PURPOSES
+        case 9: 
+            cout << endl << endl << "Goodbye. Hope to see you soon ! :)" << endl << endl;
+            exit(0);
             break;
         default:
             cout << "Invalid Menu choice. Try again." << endl;
             break;
         }
+
+        int submenuOption = submenuChoice();
+        handleSubmenuChoice(submenuOption);
 }
+
+int TerminalDisplay::submenuChoice() {
+
+    int submenuChoice;
+    do {
+        cout << "\n"
+            << "       * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n"
+            << "       *                                                         *\n"
+            << "       *                   THREAD OPTIONS MENU                   *\n"
+            << "       *                                                         *\n"
+            << "       *   (1) Custom number of threads                          *\n"
+            << "       *   (2) Run multiple attempts with a fixed thread count   *\n"
+            << "       *   (3) Run 1000 attempts with varying thread counts      *\n"
+            << "       *   (4) SECTION FOR TESTING PURPOSES  // Debug            *\n"
+            << "       *                                                         *\n"
+            << "       *   (5) Back to Menu                                      *\n"
+            << "       *                                                         *\n"
+            << "       * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n\n"
+            << "> Select an option from the submenu to continue: ";
+        cin >> submenuChoice;
+    } while (!inputValidator.isValidDigit(submenuChoice, 5));    
+    return submenuChoice;
+}
+
+int TerminalDisplay::handleSubmenuChoice(int submenuChoice) {
+
+    clearScreen(); 
+
+    do {
+        switch (submenuChoice)
+        {
+        case 1:
+            cout << "You chose:  Custom number of threads" << endl; // Debug
+            break;
+        case 2:
+            cout << "You chose: Run multiple attempts with a fixed thread count" << endl; // Debug
+            break;
+        case 3:
+            cout << "You chose: Run 1000 attempts with varying thread counts" << endl; // Debug
+            break;
+        case 4:
+            cout << "You chose: TEST" << endl; // Debug
+            break;
+        case 5: 
+            "Returning to main menu..."; // Debug
+            // displayMenu();
+            return 0;
+
+        default:
+            cout << "Invalid submenu choice. Please Try again." << endl;
+            break;
+        }
+        cin >> submenuChoice;
+    } while (!inputValidator.isValidDigit(submenuChoice, 5));
+        return submenuChoice;
+
+}
+
+void TerminalDisplay::start() {
+    while (true) {
+        int userChoice = displayMenu();
+        if (userChoice == 9) {
+            cout << endl << "Goodbye! See you soon!" << endl;
+            break;
+        }
+        handleMenuChoice(userChoice);
+    }
+}
+
+
 

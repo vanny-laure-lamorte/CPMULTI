@@ -8,6 +8,5 @@ using namespace std;
 int main()
 {
     TerminalDisplay terminalDisplay;
-    int userMenuChoice = terminalDisplay.displayMenu();
-    terminalDisplay.handleMenuChoice(userMenuChoice);
+    terminalDisplay.start();
 }
