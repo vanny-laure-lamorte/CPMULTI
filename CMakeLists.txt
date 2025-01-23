@@ -4,19 +4,24 @@ project(CPMULTI)
 # Specify the path to OpenCV
 set(OpenCV_DIR C:/opencv/build)
 find_package(OpenCV REQUIRED)
+find_package(Python3 REQUIRED COMPONENTS Development NumPy)
 
 # Include OpenCV headers
-include_directories(${OpenCV_INCLUDE_DIRS})
+include_directories(
+    ${OpenCV_INCLUDE_DIRS}
+    ${Python3_INCLUDE_DIRS}
+    ${Python3_NumPy_INCLUDE_DIRS})
 
 # Add the executable
 add_executable(${PROJECT_NAME} 
-    
-    Main.cpp
-    src/TerminalDisplay.cpp
-    src/InputValidator.cpp
-    src/GaussianBlurProcessor.cpp
-    src/CannyEdgeDetection.cpp
-    )
+
+Main.cpp
+src/TerminalDisplay.cpp
+src/InputValidator.cpp
+src/GaussianBlurProcessor.cpp
+src/CannyEdgeDetection.cpp
+)
 
 # Link OpenCV libraries
 target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
+target_link_libraries(${PROJECT_NAME} ${Python3_LIBRARIES})

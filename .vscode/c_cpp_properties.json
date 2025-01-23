@@ -18,6 +18,7 @@
             "browse": {
                 "path": [
                     "C:\\opencv\\build\\"
+                    
                 ],
                 "limitSymbolsToIncludedHeaders": false
             }

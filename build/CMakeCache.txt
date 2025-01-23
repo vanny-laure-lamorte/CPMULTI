@@ -250,9 +250,6 @@ CPMULTI_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 CPMULTI_SOURCE_DIR:STATIC=C:/Users/lucas/Desktop/2025/CPMULTI
 
-//The directory containing a CMake configuration file for OpenCV.
-OpenCV_DIR:PATH=OpenCV_DIR-NOTFOUND
-
 
 ########################
 # INTERNAL cache entries
@@ -418,6 +415,34 @@ CMAKE_TAPI-ADVANCED:INTERNAL=1
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding OpenCV
 FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[C:/opencv/build][v4.5.5()]
+//Details about finding Python3
+FIND_PACKAGE_MESSAGE_DETAILS_Python3:INTERNAL=[C:/Users/lucas/AppData/Local/Programs/Python/Python312/libs/python312.lib][C:/Users/lucas/AppData/Local/Programs/Python/Python312/include][C:/Users/lucas/AppData/Local/Programs/Python/Python312/Lib/site-packages/numpy/_core/include][cfound components: Development NumPy Interpreter Development.Module Development.Embed ][v3.12.1()]
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
+//Compiler reason failure
+_Python3_Compiler_REASON_FAILURE:INTERNAL=
+_Python3_DEVELOPMENT_EMBED_SIGNATURE:INTERNAL=9f82c5e4cd67d88dcbcf4b889ad12782
+_Python3_DEVELOPMENT_MODULE_SIGNATURE:INTERNAL=9f82c5e4cd67d88dcbcf4b889ad12782
+//Development reason failure
+_Python3_Development_REASON_FAILURE:INTERNAL=
+//Path to a program.
+_Python3_EXECUTABLE:INTERNAL=C:/Users/lucas/AppData/Local/Programs/Python/Python312/python.exe
+//Path to a program.
+_Python3_EXECUTABLE_DEBUG:INTERNAL=_Python3_EXECUTABLE_DEBUG-NOTFOUND
+//Path to a file.
+_Python3_INCLUDE_DIR:INTERNAL=C:/Users/lucas/AppData/Local/Programs/Python/Python312/include
+//Python3 Properties
+_Python3_INTERPRETER_PROPERTIES:INTERNAL=Python;3;12;1;64;<none>;cp312-win_amd64;;C:\Users\lucas\AppData\Local\Programs\Python\Python312\Lib;C:\Users\lucas\AppData\Local\Programs\Python\Python312\Lib;C:\Users\lucas\AppData\Local\Programs\Python\Python312\Lib\site-packages;C:\Users\lucas\AppData\Local\Programs\Python\Python312\Lib\site-packages
+_Python3_INTERPRETER_SIGNATURE:INTERNAL=893495d75d43fb3fe1d101140fdf1012
+//Interpreter reason failure
+_Python3_Interpreter_REASON_FAILURE:INTERNAL=
+//Path to a library.
+_Python3_LIBRARY_DEBUG:INTERNAL=_Python3_LIBRARY_DEBUG-NOTFOUND
+//Path to a library.
+_Python3_LIBRARY_RELEASE:INTERNAL=C:/Users/lucas/AppData/Local/Programs/Python/Python312/libs/python312.lib
+_Python3_NUMPY_SIGNATURE:INTERNAL=594e94d8a3592b1baf6b9c8cc2bce402
+//Path to a file.
+_Python3_NumPy_INCLUDE_DIR:INTERNAL=C:/Users/lucas/AppData/Local/Programs/Python/Python312/Lib/site-packages/numpy/_core/include
+//Path to a library.
+_Python3_RUNTIME_LIBRARY_RELEASE:INTERNAL=C:/Users/lucas/AppData/Local/Programs/Python/Python312/python312.dll
 

@@ -168,6 +168,7 @@ CPMULTI.exe: C:/opencv/build/x64/mingw/lib/libopencv_photo455.dll.a
 CPMULTI.exe: C:/opencv/build/x64/mingw/lib/libopencv_stitching455.dll.a
 CPMULTI.exe: C:/opencv/build/x64/mingw/lib/libopencv_video455.dll.a
 CPMULTI.exe: C:/opencv/build/x64/mingw/lib/libopencv_videoio455.dll.a
+CPMULTI.exe: C:/Users/lucas/AppData/Local/Programs/Python/Python312/libs/python312.lib
 CPMULTI.exe: C:/opencv/build/x64/mingw/lib/libopencv_imgcodecs455.dll.a
 CPMULTI.exe: C:/opencv/build/x64/mingw/lib/libopencv_dnn455.dll.a
 CPMULTI.exe: C:/opencv/build/x64/mingw/lib/libopencv_calib3d455.dll.a
