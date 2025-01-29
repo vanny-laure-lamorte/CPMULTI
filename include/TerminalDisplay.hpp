@@ -38,17 +38,26 @@ public:
     void handleMenuChoice(int userMenuChoice);
 
     /**
+     * @brief 
+     * 
+     * @return int 
+     */
+    int gaussianSubmenuChoice();
+
+    /**
      * Function takes an integer input representing the user's choice from the submenu. 
      * It clears the terminal screen and performs the corresponding image processing operation.
      * @param int subMenuChoice
      */
-    int handleSubmenuChoice(int submenuChoice);
+    int handleGaussianSubmenuChoice(int submenuChoice);
+
+    int gaussianKernelSubmenuChoice();
+
 
     /**
-     * Function
+     * Function serves as the main control loop of the application.  
+     * The loop terminates when the user chooses option 9 to quit the program.
      */
-    int submenuChoice();
-
     void start();
 
 private:

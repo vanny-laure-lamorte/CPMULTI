@@ -21,7 +21,30 @@ add_executable(${PROJECT_NAME} Main.cpp
                 src/GaussianBlurProcessor.cpp
                 src/CannyEdgeDetection.cpp
                 src/DiscreteFourierTransform.cpp
-)
+                src/GaussianBlurProcessor.cpp
+                src/CannyEdgeDetection.cpp)
+
+# find_package(Python3 REQUIRED COMPONENTS Development NumPy)
+# if (NOT Python3_FOUND)
+# set(Python3_EXECUTABLE "C:\\Users\\Vanny Laure Lamorte\\AppData\\Local\\Programs\\Python\\Python312\\python.exe")
+# find_package(Python3 COMPONENTS Interpreter NumPy REQUIRED)
+# endif()
+
+# # Include OpenCV headers
+# include_directories(
+#     ${OpenCV_INCLUDE_DIRS}
+#     ${Python3_INCLUDE_DIRS}
+#     ${Python3_NumPy_INCLUDE_DIRS})
+
+# # Add the executable
+# add_executable(${PROJECT_NAME} 
+
+# Main.cpp
+# src/TerminalDisplay.cpp
+# src/InputValidator.cpp
+# src/GaussianBlurProcessor.cpp
+# src/CannyEdgeDetection.cpp
+# )
 
 target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
 # Todo use the following command line to build the project :
@@ -51,3 +74,6 @@ target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
 #     C:/opencv/build/x64/mingw64/lib/libopencv_stitching4110.dll.a
 #     C:/opencv/build/x64/mingw64/lib/libopencv_video4110.dll.a
 # )
+
+
+# target_link_libraries(${PROJECT_NAME} ${Python3_LIBRARIES})

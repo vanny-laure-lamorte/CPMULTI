@@ -5,7 +5,7 @@
             "includePath": [
                 "${default}",
                 "C:/opencv/build/include",
-                "${workspaceFolder}/include",
+                "${workspaceFolder}",
                 "${workspaceFolder}"
             ],
             "defines": [
@@ -19,6 +19,7 @@
             "browse": {
                 "path": [
                     "C:\\opencv\\build\\"
+                    
                 ],
                 "limitSymbolsToIncludedHeaders": false
             }
