@@ -2,8 +2,8 @@
 │── /src
 │   ├── /core          # Core logic (image processing, algorithms, utilities)
 │   ├── /io            # File handling, camera input/output
-│   ├── /ui            # Graphical UI (optional)
-│   ├── /config        # Configuration handling (optional)
+│   ├── /ui            # Graphical UI
+│   ├── /config        # Configuration handling
 │   ├── /tests         # Unit tests
 │   ├── main.cpp       # Entry point
 │── /include           # Header files
