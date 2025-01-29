@@ -3,6 +3,7 @@ project(CPMULTI)
 
 set(OpenCV_DIR "C:/opencv/build/x64/mingw64")
 
+
 find_package(OpenCV REQUIRED)
 
 if(OpenCV_FOUND)
@@ -14,8 +15,13 @@ else()
 endif()
 
 include_directories(C:/opencv/build/include)
+include_directories(${CMAKE_SOURCE_DIR}/include)
+include_directories(${CMAKE_SOURCE_DIR}/src)
 
-add_executable(${PROJECT_NAME} Main.cpp
+file(GLOB SRC_FILES src/core/*.cpp src/io/*.cpp src/ui/*.cpp src/main.cpp)
+
+add_executable(${PROJECT_NAME} ${SRC_FILES}
+                Main.cpp
                 src/TerminalDisplay.cpp
                 src/InputValidator.cpp
                 src/GaussianBlurProcessor.cpp
@@ -23,6 +29,7 @@ add_executable(${PROJECT_NAME} Main.cpp
                 src/DiscreteFourierTransform.cpp
                 src/GaussianBlurProcessor.cpp
                 src/CannyEdgeDetection.cpp)
+
 
 # find_package(Python3 REQUIRED COMPONENTS Development NumPy)
 # if (NOT Python3_FOUND)

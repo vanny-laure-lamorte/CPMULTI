@@ -1,4 +1,4 @@
-#include "../include/GaussianBlurProcessor.hpp"
+#include "GaussianBlurProcessor.hpp"
 
 GaussianBlurProcessor::GaussianBlurProcessor()
 {

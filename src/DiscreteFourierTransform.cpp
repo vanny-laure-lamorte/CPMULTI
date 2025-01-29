@@ -1,5 +1,5 @@
 // file: DiscreteFourierTransform.cpp
-#include "../include/DiscreteFourierTransform.hpp"
+#include "DiscreteFourierTransform.hpp"
 
 DiscreteFourierTransform::DiscreteFourierTransform(const string& filename) : filename(filename) {}
 DiscreteFourierTransform::~DiscreteFourierTransform()
