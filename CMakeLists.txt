@@ -20,6 +20,7 @@ add_executable(${PROJECT_NAME} Main.cpp
                 src/InputValidator.cpp
                 src/GaussianBlurProcessor.cpp
                 src/CannyEdgeDetection.cpp
+                src/DiscreteFourierTransform.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})

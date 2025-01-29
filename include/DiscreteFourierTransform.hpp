@@ -27,7 +27,7 @@ class DiscreteFourierTransform
     /*
     * @brief Destructor of DiscreteFourierTransform class.
     */
-    DiscreteFourierTransform::~DiscreteFourierTransform();
+    ~DiscreteFourierTransform();
     /*
     * @brief Load the image from the given filename.
     * @return True if the image is loaded successfully, false otherwise.
@@ -45,10 +45,18 @@ class DiscreteFourierTransform
     * @brief Display the magnitude spectrum of the image and the orignal image.
     */
     void showResult();
+    void printMatrices();
+
+    Mat rotateImageUsingDFT(double angle);
+    Mat rotateDFT(const Mat& complexImage, double angle);
+    Mat inverseDFT(const Mat& complexImage);
+    void Showrotatedimage();
+  
+
     protected:
     private:
     string filename;
-    Mat img, padded, complexImage, magnitudeSpectrum;
+    Mat img, padded, complexImage, magnitudeSpectrum, rotatedImage;
 /*
     * @brief Rearrange the quadrants of the image.
     * 

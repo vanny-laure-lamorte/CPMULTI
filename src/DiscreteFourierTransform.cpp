@@ -25,8 +25,8 @@ void DiscreteFourierTransform::ComputeDFT() {
 
     Mat planes[] = {Mat_<float>(padded), Mat::zeros(padded.size(), CV_32F)};
     Mat complexI;
-    merge(planes, 2, complexI);
-    dft(complexI, complexI);
+    merge(planes, 2, complexImage);
+    dft(complexImage, complexImage);
 }
 void DiscreteFourierTransform::computeMagnitudeSpectrum() {
 
@@ -65,8 +65,42 @@ void  DiscreteFourierTransform::rearrangeQuadrants() {
     tmp.copyTo(q2);
 }
 
+Mat DiscreteFourierTransform::rotateImageUsingDFT(double angle) {
+    Mat rotatedComplexImage = rotateDFT(complexImage, angle);
+    rotatedImage = inverseDFT(rotatedComplexImage);
+    return rotatedImage;
+}
+
+Mat DiscreteFourierTransform::rotateDFT(const Mat& complexImage, double angle) {
+    Point2f center(complexImage.cols / 2.0, complexImage.rows / 2.0);
+    Mat rot = getRotationMatrix2D(center, angle, 1.0);
+    Rect2f bbox = RotatedRect(Point2f(), complexImage.size(), angle).boundingRect2f();
+    rot.at<double>(0, 2) += bbox.width / 2.0 - complexImage.cols / 2.0;
+    rot.at<double>(1, 2) += bbox.height / 2.0 - complexImage.rows / 2.0;
+    Mat rotatedComplexImage;
+    warpAffine(complexImage, rotatedComplexImage, rot, bbox.size());
+    return rotatedComplexImage;
+}
+
+Mat DiscreteFourierTransform::inverseDFT(const Mat& complexImage) {
+    Mat inverseTransform;
+    idft(complexImage, inverseTransform, DFT_SCALE | DFT_REAL_OUTPUT);
+    return inverseTransform;
+}
+
 void DiscreteFourierTransform::showResult() {
     imshow("Input Image", img);
+    imshow("Padded Image", padded);
+
     imshow("Magnitude Spectrum", magnitudeSpectrum);
     waitKey();
+}
+void DiscreteFourierTransform::Showrotatedimage() {
+    imshow("Rotated Image", rotatedImage);
+    waitKey();
+}
+void DiscreteFourierTransform::printMatrices() {
+
+    cout << "Complex Image Matrix: " << endl << complexImage << endl;
+
 }

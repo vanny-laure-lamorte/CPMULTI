@@ -3,6 +3,7 @@
 InputValidator inputValidator;
 // CannyEdgeDetection cannyEdgeDetection;
 GaussianBlurProcessor gaussianBlurProcessor;  
+DiscreteFourierTransform discretfouriertransform("../assets/image.jpg");
 
 void TerminalDisplay::displayWelcomeMessage() {
     cout << "\n"
@@ -96,6 +97,10 @@ void TerminalDisplay::handleMenuChoice(int userMenuChoice) {
             break;
         case 3:
             cout << "You chose: Fourier Transform" << endl; // Debug
+            discretfouriertransform.LoadImage();
+            discretfouriertransform.ComputeDFT();
+            discretfouriertransform.computeMagnitudeSpectrum();
+            discretfouriertransform.showResult();
             break;
         case 4:
             cout << "You chose: Gaussian Blur" << endl; // Debug
@@ -158,6 +163,8 @@ int TerminalDisplay::handleSubmenuChoice(int submenuChoice) {
         {
         case 1:
             cout << "You chose:  Custom number of threads" << endl; // Debug
+            discretfouriertransform.rotateImageUsingDFT(180);
+            discretfouriertransform.Showrotatedimage();
             break;
         case 2:
             cout << "You chose: Run multiple attempts with a fixed thread count" << endl; // Debug

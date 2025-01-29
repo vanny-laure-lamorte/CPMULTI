@@ -3,6 +3,7 @@
 #include "InputValidator.hpp"
 // #include "CannyEdgeDetection.hpp"
 #include "GaussianBlurProcessor.hpp"
+#include "DiscreteFourierTransform.hpp"
 #include <iostream>
 using namespace std;
 #include <limits>
