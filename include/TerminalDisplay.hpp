@@ -1,7 +1,7 @@
 #ifndef TERMINALDISPLAY_HPP
 #define TERMINALDISPLAY_HPP
 #include "InputValidator.hpp"
-// #include "CannyEdgeDetection.hpp"
+#include "CannyEdgeDetection.hpp"
 #include "GaussianBlurProcessor.hpp"
 #include "DiscreteFourierTransform.hpp"
 #include <iostream>

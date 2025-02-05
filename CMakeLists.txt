@@ -6,6 +6,18 @@ set(OpenCV_DIR "C:/opencv/build/x64/mingw64")
 
 find_package(OpenCV REQUIRED)
 
+find_package(Python3 REQUIRED COMPONENTS Development NumPy)
+if (NOT Python3_FOUND)
+    message(FATAL_ERROR "Python3 not found!")
+    set(Python3_EXECUTABLE "C:\\Users\\Vanny Laure Lamorte\\AppData\\Local\\Programs\\Python\\Python312\\python.exe")
+    find_package(Python3 COMPONENTS Interpreter NumPy REQUIRED)
+else()
+    message(STATUS "Python3 found: ${Python3_VERSION}")
+    message(STATUS "Python3 include directories: ${Python3_INCLUDE_DIRS}")
+    message(STATUS "Python3 libraries: ${Python3_LIBRARIES}")
+    message(STATUS "Python3 NumPy include directories: ${Python3_NumPy_INCLUDE_DIRS}")
+endif()
+
 if(OpenCV_FOUND)
     message(STATUS "OpenCV found: ${OpenCV_VERSION}")
     message(STATUS "OpenCV include directories: ${OpenCV_INCLUDE_DIRS}")
@@ -17,6 +29,10 @@ endif()
 include_directories(C:/opencv/build/include)
 include_directories(${CMAKE_SOURCE_DIR}/include)
 include_directories(${CMAKE_SOURCE_DIR}/src)
+include_directories(
+    ${Python3_INCLUDE_DIRS}
+    ${Python3_NumPy_INCLUDE_DIRS}
+)
 
 file(GLOB SRC_FILES src/core/*.cpp src/io/*.cpp src/ui/*.cpp src/main.cpp)
 
@@ -30,12 +46,6 @@ add_executable(${PROJECT_NAME} ${SRC_FILES}
                 src/GaussianBlurProcessor.cpp
                 src/CannyEdgeDetection.cpp)
 
-
-# find_package(Python3 REQUIRED COMPONENTS Development NumPy)
-# if (NOT Python3_FOUND)
-# set(Python3_EXECUTABLE "C:\\Users\\Vanny Laure Lamorte\\AppData\\Local\\Programs\\Python\\Python312\\python.exe")
-# find_package(Python3 COMPONENTS Interpreter NumPy REQUIRED)
-# endif()
 
 # # Include OpenCV headers
 # include_directories(
@@ -83,4 +93,4 @@ target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
 # )
 
 
-# target_link_libraries(${PROJECT_NAME} ${Python3_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} ${Python3_LIBRARIES})

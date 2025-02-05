@@ -11,13 +11,13 @@ GaussianBlurProcessor::~GaussianBlurProcessor()
 
 void GaussianBlurProcessor::plotGraph(const std::vector<int> &xValues, const std::vector<double> &yValues, const std::string &title, const std::string &xLabel, const std::string &yLabel)
 {
-//     matplotlibcpp::figure();
-//     matplotlibcpp::plot(xValues, yValues, "-o");
-//     matplotlibcpp::title(title);
-//     matplotlibcpp::xlabel(xLabel);
-//     matplotlibcpp::ylabel(yLabel);
-//     matplotlibcpp::grid(true);
-//     matplotlibcpp::show();
+    matplotlibcpp::figure();
+    matplotlibcpp::plot(xValues, yValues, "-o");
+    matplotlibcpp::title(title);
+    matplotlibcpp::xlabel(xLabel);
+    matplotlibcpp::ylabel(yLabel);
+    matplotlibcpp::grid(true);
+    matplotlibcpp::show();
 }
 
 pair<Mat, double> GaussianBlurProcessor::applyGaussianBlur(int numThreads)

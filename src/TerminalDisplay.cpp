@@ -1,7 +1,7 @@
 #include "TerminalDisplay.hpp"
 
 InputValidator inputValidator;
-// CannyEdgeDetection cannyEdgeDetection;
+CannyEdgeDetection cannyEdgeDetection;
 GaussianBlurProcessor gaussianBlurProcessor;
 DiscreteFourierTransform discretfouriertransform("../assets/image.jpg");
 
@@ -101,7 +101,7 @@ void TerminalDisplay::handleMenuChoice(int userMenuChoice)
     {
     case 1:
         cout << "You chose: Canny Edge Detection" << endl; // Debug
-        // cannyEdgeDetection.runCannyEdgeDetection();
+        cannyEdgeDetection.runCannyEdgeDetection();
         break;
     case 2:
         cout << "You chose: Denoising" << endl; // Debug
