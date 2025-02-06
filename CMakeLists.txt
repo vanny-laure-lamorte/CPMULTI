@@ -37,13 +37,7 @@ include_directories(
 file(GLOB SRC_FILES src/core/*.cpp src/io/*.cpp src/ui/*.cpp src/main.cpp)
 
 add_executable(${PROJECT_NAME} ${SRC_FILES}
-                Main.cpp
-                src/TerminalDisplay.cpp
-                src/InputValidator.cpp
-                src/CannyEdgeDetection.cpp
-                src/DiscreteFourierTransform.cpp
-                src/GaussianBlurProcessor.cpp
-                src/CannyEdgeDetection.cpp)
+                Main.cpp)
 
 
 # # Include OpenCV headers
