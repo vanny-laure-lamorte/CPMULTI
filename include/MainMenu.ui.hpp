@@ -49,7 +49,7 @@ class MainMenu
          */
         void handleProcessingChoice(int userMenuChoice);
 
-                /**
+        /**
          * Function takes an integer input representing the user's choice from the menu.
          * It clears the terminal screen, displays the title of the selected menu option a
          * @param int userMenuChoice
