@@ -1,0 +1,11 @@
+#ifndef CANNY_MENU_UI_HPP
+#define CANNY_MENU_UI_HPP
+
+#include <opencv2/opencv.hpp>
+
+class CannyMenu {
+public:
+    void cannyMenu(cv::Mat& img);
+};
+
+#endif // CANNY_MENU_UI_HPP
