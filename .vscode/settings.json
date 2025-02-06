@@ -3,6 +3,7 @@
         "*.sqlbook": "sql",
         "*.ndjson": "jsonl",
         "*.dbclient-js": "javascript",
+        "*.json": "json",
         "iostream": "cpp",
         "ostream": "cpp",
         "array": "cpp",
@@ -70,7 +71,8 @@
         "typeinfo": "cpp",
         "variant": "cpp",
         "bitset": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "typeindex": "cpp"
     },
     "makefile.configurations": [
         {

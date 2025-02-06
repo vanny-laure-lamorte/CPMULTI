@@ -40,7 +40,6 @@ add_executable(${PROJECT_NAME} ${SRC_FILES}
                 Main.cpp
                 src/TerminalDisplay.cpp
                 src/InputValidator.cpp
-                src/GaussianBlurProcessor.cpp
                 src/CannyEdgeDetection.cpp
                 src/DiscreteFourierTransform.cpp
                 src/GaussianBlurProcessor.cpp
