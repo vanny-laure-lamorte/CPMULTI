@@ -1,34 +1,49 @@
 // file: DiscreteFourierTransform.cpp
 #include "DiscreteFourierTransform.hpp"
+#include <iostream>
 
-DiscreteFourierTransform::DiscreteFourierTransform(const string& filename) : filename(filename) {}
-DiscreteFourierTransform::~DiscreteFourierTransform()
-{
+using namespace cv;
+using namespace std;
+
+DiscreteFourierTransform::DiscreteFourierTransform(const Mat& image) {
+    if (image.empty()) {
+        cerr << "Error: Provided image is empty!" << endl;
+        return;
+    }
+    img = image.clone();
+}
+
+DiscreteFourierTransform::~DiscreteFourierTransform() {
     destroyAllWindows();
 }
 
-bool DiscreteFourierTransform::LoadImage() {
-    img = imread(filename, IMREAD_GRAYSCALE);
-    if(img.empty())
-    {
-        cerr << "Could not open or find the image!\n" << endl;
-        return false;
+void DiscreteFourierTransform::computeDFT() {
+    if (img.empty()) {
+        cerr << "Error: No image loaded for DFT computation!" << endl;
+        return;
     }
-    return true;
-}
 
-void DiscreteFourierTransform::ComputeDFT() {
+        
+    if (img.channels() > 1) {
+        cvtColor(img, img, COLOR_BGR2GRAY);
+    }
+    img.convertTo(img, CV_32F);
+
     int y = getOptimalDFTSize(img.rows);
     int x = getOptimalDFTSize(img.cols);
 
     copyMakeBorder(img, padded, 0, y - img.rows, 0, x - img.cols, BORDER_CONSTANT, Scalar::all(0));
 
     Mat planes[] = {Mat_<float>(padded), Mat::zeros(padded.size(), CV_32F)};
-    Mat complexI;
     merge(planes, 2, complexImage);
     dft(complexImage, complexImage);
 }
+
 void DiscreteFourierTransform::computeMagnitudeSpectrum() {
+    if (complexImage.empty()) {
+        cerr << "Error: Compute DFT first before computing the magnitude spectrum!" << endl;
+        return;
+    }
 
     Mat planes[2];
     split(complexImage, planes);
@@ -40,15 +55,14 @@ void DiscreteFourierTransform::computeMagnitudeSpectrum() {
     log(magnitudeSpectrum, magnitudeSpectrum);
 
     magnitudeSpectrum = magnitudeSpectrum(Rect(0, 0, magnitudeSpectrum.cols & -2, magnitudeSpectrum.rows & -2));
-
     rearrangeQuadrants();
 
     normalize(magnitudeSpectrum, magnitudeSpectrum, 0, 1, NORM_MINMAX);
 }
 
-void  DiscreteFourierTransform::rearrangeQuadrants() {
-    int cx = magnitudeSpectrum.cols/2;
-    int cy = magnitudeSpectrum.rows/2;
+void DiscreteFourierTransform::rearrangeQuadrants() {
+    int cx = magnitudeSpectrum.cols / 2;
+    int cy = magnitudeSpectrum.rows / 2;
 
     Mat q0(magnitudeSpectrum, Rect(0, 0, cx, cy));
     Mat q1(magnitudeSpectrum, Rect(cx, 0, cx, cy));
@@ -66,6 +80,11 @@ void  DiscreteFourierTransform::rearrangeQuadrants() {
 }
 
 Mat DiscreteFourierTransform::rotateImageUsingDFT(double angle) {
+    if (complexImage.empty()) {
+        cerr << "Error: Compute DFT first before rotating!" << endl;
+        return Mat();
+    }
+
     Mat rotatedComplexImage = rotateDFT(complexImage, angle);
     rotatedImage = inverseDFT(rotatedComplexImage);
     return rotatedImage;
@@ -89,18 +108,26 @@ Mat DiscreteFourierTransform::inverseDFT(const Mat& complexImage) {
 }
 
 void DiscreteFourierTransform::showResult() {
+        if (img.empty() || magnitudeSpectrum.empty()) {
+        cerr << "Error: " 
+             << (img.empty() ? "No input image loaded!" : "Compute Magnitude Spectrum first!") 
+             << endl;
+        return;
+    }
     imshow("Input Image", img);
-    imshow("Padded Image", padded);
-
     imshow("Magnitude Spectrum", magnitudeSpectrum);
-    waitKey();
+    waitKey(0);
 }
-void DiscreteFourierTransform::Showrotatedimage() {
+
+void DiscreteFourierTransform::showRotatedImage() {
+    if (rotatedImage.empty()) {
+        cerr << "Error: Rotate image first!" << endl;
+        return;
+    }
     imshow("Rotated Image", rotatedImage);
-    waitKey();
+    waitKey(0);
 }
+
 void DiscreteFourierTransform::printMatrices() {
-
     cout << "Complex Image Matrix: " << endl << complexImage << endl;
-
 }

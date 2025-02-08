@@ -1,6 +1,7 @@
 #include "MainMenu.ui.hpp"
 #include "CannyMenu.ui.hpp"
 #include "DenoisingMenu.ui.hpp"
+#include "discreteFourierTransformMenu.ui.hpp"
 #include "ImageManager.io.hpp"
 
 InputValidator inputValidator;
@@ -149,7 +150,7 @@ void MainMenu::handleProcessingChoice(int userChoice)
         denoisingMenu.denoisingMenu(image);
     case 3:
         cout << "You chose: Fourier Transform" << endl; // Debug
-        break;
+        DiscreteFourierTransformMenu::displayDFTMenu(image);
     case 4:
         cout << "You chose: Gaussian Blur" << endl; // Debug
         break;
