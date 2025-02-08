@@ -77,6 +77,7 @@ class MainMenu
      * Function is user to clear the terminal screen
      */
     void clearScreen() { printf("\033c"); }
+    cv::Mat image;
 };
 
 #endif // MAINMENU_HPP

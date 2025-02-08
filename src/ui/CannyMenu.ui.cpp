@@ -3,6 +3,8 @@
 #include <iostream>
 
 void CannyMenu::cannyMenu(cv::Mat& img) {
+
+    
     int lowThreshold, highThreshold;
     std::cout << "Entrez le seuil bas pour Canny: ";
     std::cin >> lowThreshold;

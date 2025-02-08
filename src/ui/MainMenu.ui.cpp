@@ -1,8 +1,10 @@
 #include "MainMenu.ui.hpp"
 #include "CannyMenu.ui.hpp"
+#include "DenoisingMenu.ui.hpp"
+#include "ImageManager.io.hpp"
 
 InputValidator inputValidator;
-
+ImageManager imageManager;
 
 void MainMenu::mainMenu(){
     int userChoice;
@@ -135,22 +137,16 @@ void MainMenu::handleProcessingChoice(int userChoice)
 
     int submenuOption;
 
-    cv::Mat image = cv::imread("C:\\Users\\tslem\\Desktop\\Laplateforme\\bachelore2\\depot\\Cpp\\projetGroupe\\Mutexisation\\CPMULTI\\assets\\image.jpg");
-
     switch (userChoice)
     {
     case 1:
         cout << "You chose: Canny Edge Detection" << endl; // Debug
-        
-        if (image.empty()) {
-            std::cerr << "Erreur: Impossible de charger l'image " << "C:\\Users\\tslem\\Desktop\\Laplateforme\\bachelore2\\depot\\Cpp\\projetGroupe\\Mutexisation\\CPMULTI\\assets\\image.jpg" << std::endl;
-            break;
-        }
         CannyMenu cannyMenu;
         cannyMenu.cannyMenu(image);
     case 2:
         cout << "You chose: Denoising" << endl; // Debug
-        break;
+        DenoisingMenu denoisingMenu;
+        denoisingMenu.denoisingMenu(image);
     case 3:
         cout << "You chose: Fourier Transform" << endl; // Debug
         break;
@@ -186,6 +182,7 @@ void MainMenu::handleMenuChoice(int userChoice)
 {
 
     // clearScreen();
+    string imagePath;
 
     vector<string> menuListTitle = {
         "CHARGER UNE IMAGE",
@@ -209,7 +206,10 @@ void MainMenu::handleMenuChoice(int userChoice)
     {
     case 1:
         cout << "You chose: Charger une image" << endl; // Debug
-        break;
+        cout << "Enter the path to the image: ";
+        cin >> imagePath;
+        image = imageManager.loadImage(imagePath);
+        return;
     case 2:
         cout << "You chose: Accéder au menu de traitement" << endl; // Debug
         userChoice = displayProcessingMenu();
