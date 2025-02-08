@@ -1,5 +1,5 @@
-#ifndef DENOISINGMENU_HPP
-#define DENOISINGMENU_HPP
+#ifndef DENOISING_MENU_UI_HPP
+#define DENOISING_MENU_UI_HPP
 #include <opencv2/opencv.hpp>
 #include <iostream>
 

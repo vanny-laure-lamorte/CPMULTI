@@ -1,15 +1,21 @@
 #include "GaussianBlurProcessor.hpp"
 
-GaussianBlurProcessor::GaussianBlurProcessor()
+GaussianBlurProcessor::GaussianBlurProcessor(const Mat &inputImage)
 {
-    image = imread("../assets/image.jpg", IMREAD_COLOR);
+    if (inputImage.empty()) {
+        cerr << "Error: Provided image is empty!" << endl;
+        return;
+    }
+    image = inputImage.clone();
 }
 GaussianBlurProcessor::~GaussianBlurProcessor()
 {
     destroyAllWindows();
 }
 
-void GaussianBlurProcessor::plotGraph(const std::vector<int> &xValues, const std::vector<double> &yValues, const std::string &title, const std::string &xLabel, const std::string &yLabel)
+void GaussianBlurProcessor::plotGraph(const std::vector<int> &xValues, const std::vector<double> &yValues, 
+                                        const std::string &title, const std::string &xLabel, 
+                                        const std::string &yLabel)
 {
     matplotlibcpp::figure();
     matplotlibcpp::plot(xValues, yValues, "-o");

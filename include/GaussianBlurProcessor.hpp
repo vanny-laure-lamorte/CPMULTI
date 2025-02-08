@@ -44,7 +44,7 @@ public:
      * @brief Construct a new Gaussian Blur Processor
      * Loads default image from assets
      */
-    GaussianBlurProcessor();
+    GaussianBlurProcessor(const Mat& inputImage);
 
     /**
      * @brief Destructor to clean up windows
@@ -64,17 +64,17 @@ public:
      */
     void graphThreads();
 
-    /**
-     * @brief Displays interactive menu for blur processing
-     */
-    void userChoice();
+    // /**
+    //  * @brief Displays interactive menu for blur processing
+    //  */
+    // void userChoice();
 
-    /**
-     * @brief Handles user menu selection
-     * 
-     * @param choice Selected menu option
-     */
-    void handleChoice(int choice);
+    // /**
+    //  * @brief Handles user menu selection
+    //  * 
+    //  * @param choice Selected menu option
+    //  */
+    // void handleChoice(int choice);
 
     /**
      * @brief Applies Gaussian blur with custom number of threads

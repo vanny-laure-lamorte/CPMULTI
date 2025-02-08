@@ -2,6 +2,7 @@
 #include "CannyMenu.ui.hpp"
 #include "DenoisingMenu.ui.hpp"
 #include "discreteFourierTransformMenu.ui.hpp"
+#include "GaussianBlurMenu.ui.hpp"
 #include "ImageManager.io.hpp"
 
 InputValidator inputValidator;
@@ -153,7 +154,7 @@ void MainMenu::handleProcessingChoice(int userChoice)
         DiscreteFourierTransformMenu::displayDFTMenu(image);
     case 4:
         cout << "You chose: Gaussian Blur" << endl; // Debug
-        break;
+        GaussianBlurMenu::displayGaussianMenu(image);
     case 5:
         cout << "You chose: Median Filter" << endl; // Debug
         break;

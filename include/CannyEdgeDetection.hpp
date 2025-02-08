@@ -1,5 +1,5 @@
-#ifndef CANNYEDGEDETECTION_H
-#define CANNYEDGEDETECTION_H
+#ifndef CANNYEDGEDETECTION_HPP
+#define CANNYEDGEDETECTION_HPP
 #include <iostream>
 #include <opencv2/opencv.hpp>
 #include "opencv2/imgproc.hpp"
