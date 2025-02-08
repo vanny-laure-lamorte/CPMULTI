@@ -3,6 +3,7 @@
         "*.sqlbook": "sql",
         "*.ndjson": "jsonl",
         "*.dbclient-js": "javascript",
+        "*.json": "json",
         "iostream": "cpp",
         "ostream": "cpp",
         "array": "cpp",
@@ -68,7 +69,10 @@
         "thread": "cpp",
         "cinttypes": "cpp",
         "typeinfo": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "bitset": "cpp",
+        "regex": "cpp",
+        "typeindex": "cpp"
     },
     "makefile.configurations": [
         {
@@ -81,5 +85,12 @@
             },
             "name": "Unnamed configuration 1"
         }
-    ]
+    ],
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/include",
+        "${workspaceFolder}/src",
+        "C:/opencv/build/include"
+    ],
+    "C_Cpp.default.intelliSenseMode": "gcc-x64",
+    "C_Cpp.default.compilerPath": "C:/msys64/mingw64/bin/g++.exe"
 }

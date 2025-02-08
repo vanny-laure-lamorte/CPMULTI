@@ -1,4 +1,4 @@
-#include "../include/InputValidator.hpp"
+#include "InputValidator.hpp"
 #include <iostream>
 using namespace std;
 

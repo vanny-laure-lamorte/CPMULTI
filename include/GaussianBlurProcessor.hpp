@@ -1,53 +1,97 @@
-#ifndef GAUSSIANBLURPROCESSOR_HPP
-#define GAUSSIANBLURPROCESSOR_HPP
+#ifndef GAUSSIAN_BLUR_PROCESSOR_HPP
+#define GAUSSIAN_BLUR_PROCESSOR_HPP
 
 #include <opencv2/opencv.hpp>
+#include <opencv2/core.hpp>
+#include <opencv2/imgproc.hpp>
 #include <thread>
 #include <vector>
+#include "matplotlibcpp.h"
 #include "TerminalDisplay.hpp"
 using namespace cv;
 using namespace std;
 
-class GaussianBlurProcessor
-{
+/**
+ * @class GaussianBlurProcessor
+ * @brief Manages image processing with Gaussian blur using multithreading
+ * 
+ * This class provides functionality for applying Gaussian blur to images,
+ * supporting single and multi-threaded processing, performance benchmarking,
+ * and visualization of processing results.
+ */
+class GaussianBlurProcessor {
+private:
+    /// Input image to be processed
+    Mat image;
+
+    /**
+     * @brief Plots performance graph using matplotlib
+     * 
+     * @param xValues X-axis values for graph
+     * @param yValues Y-axis values for graph
+     * @param title Graph title
+     * @param xLabel X-axis label
+     * @param yLabel Y-axis label
+     */
+    void plotGraph(const vector<int>& xValues, 
+                   const vector<double>& yValues, 
+                   const string& title, 
+                   const string& xLabel, 
+                   const string& yLabel);
+
 public:
-    // Constructor
-    GaussianBlurProcessor();
+    /**
+     * @brief Construct a new Gaussian Blur Processor
+     * Loads default image from assets
+     */
+    GaussianBlurProcessor(const Mat& inputImage);
+
+    /**
+     * @brief Destructor to clean up windows
+     */
     ~GaussianBlurProcessor();
 
     /**
-     * @brief Applies Gaussian blur to an image using the specified number of threads.
-     *
-     * This function divides the image into regions and processes each region
-     * in parallel using the specified number of threads. Optionally, it can
-     * repeat the operation multiple times for benchmarking purposes.
-     *
-     * @param numThreads Number of threads to use for processing.
-     * @param numAttempts Number of attempts to repeat the operation.
-     * @return The resulting blurred image.
+     * @brief Applies Gaussian blur using specified number of threads
+     * 
+     * @param numThreads Number of threads for parallel processing
+     * @return Mat Processed blurred image
      */
-    Mat applyGaussianBlur(int numThreads, int numAttempts);
+    pair<Mat, double> applyGaussianBlur(int numThreads);
 
-    /** @brief saveImage to save the image to the specified filename
-     * @param image
-     * @param filename
+    /**
+     * @brief Graphs performance across different thread counts
      */
-    void saveImage(const Mat &image, const string &filename);
+    void graphThreads();
 
-    // Function to choose user options
-    void userChoice();
+    // /**
+    //  * @brief Displays interactive menu for blur processing
+    //  */
+    // void userChoice();
 
-    // Function to display menu
-    void displayMenu();
+    // /**
+    //  * @brief Handles user menu selection
+    //  * 
+    //  * @param choice Selected menu option
+    //  */
+    // void handleChoice(int choice);
 
-    // Function to handle choice
-    void handleChoice(int choice);
+    /**
+     * @brief Applies Gaussian blur with custom number of threads
+     * 
+     * @param threads Number of threads for parallel processing
+    */
+    void GaussianBlurWithCustomThreads(int threads);
 
-private:
-    Mat image;                    // Original image
-    Size kernelSize;              // Gaussian kernel size
-    std::string imagePath;        // Path to image file
-    map<int, double> threadTimes; // Map to store thread execution times
+    /**
+     * @brief Applies Gaussian blur with custom intensity
+     * 
+     * @param intensity Custom intensity for Gaussian blur
+     * The more intense the blur, the more the image is blurred
+     */
+    void customGaussianBlurIntensity(Size intensity);
+
+
 };
 
-#endif // GAUSSIANBLURPROCESSOR_HPP
+#endif // GAUSSIAN_BLUR_PROCESSOR_HPP
