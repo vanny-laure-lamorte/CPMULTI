@@ -1,7 +1,7 @@
 #ifndef TERMINALDISPLAY_HPP
 #define TERMINALDISPLAY_HPP
 #include "InputValidator.hpp"
-// #include "CannyEdgeDetection.hpp"
+#include "CannyEdgeDetection.hpp"
 #include "GaussianBlurProcessor.hpp"
 #include <iostream>
 using namespace std;
@@ -41,18 +41,25 @@ public:
      */
     int submenuChoice();
 
-    /**
-     * Function takes an integer input representing the user's choice from the submenu. 
-     * It clears the terminal screen and performs the corresponding image processing operation.
-     * @param int subMenuChoice
-     */
-    int handleSubmenuChoice(int submenuChoice);
 
     /**
      * Function serves as the main control loop of the application.  
      * The loop terminates when the user chooses option 9 to quit the program.
      */
     void start();
+
+    /**
+     * Function 
+     * @return int
+     */
+    int cannyEdgeDetectorSubmenuChoice();
+
+    /**
+     * Function takes an integer input representing the user's choice from the canny menu. 
+     * It clears the terminal screen and performs the corresponding image processing operation.
+     * @param int subMenuChoice
+     */
+    int handleCannySubmenuChoice(int cannySubmenuChoice);
 
 private:
     /**

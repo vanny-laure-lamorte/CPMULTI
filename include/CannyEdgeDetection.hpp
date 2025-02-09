@@ -21,8 +21,21 @@ public:
     const int kernel_size = 3;
     const char* window_name = "Edge Map";
 
+    /**
+     * Function 
+     */
     void CannyThreshold(int, void*);
+
+    /**
+     * Function to allows dynamically applying the Canny edge detector to an image using a trackbar to adjust detection thresholds.
+     */
     void runCannyEdgeDetection();
+    /**
+     * Function to allows dynamically applying the Canny edge detector to an image using a trackbar to adjust detection thresholds.
+     */
+    int applyCannyWithThreads(int numThreads);
+
+
     
 private:
 
