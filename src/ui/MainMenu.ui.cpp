@@ -7,6 +7,9 @@
 
 InputValidator inputValidator;
 ImageManager imageManager;
+CannyEdgeDetection cannyEdgeDetection;
+DenoisingMenu denoisingMenu;
+
 
 void MainMenu::mainMenu(){
     int userChoice;
@@ -33,7 +36,7 @@ void MainMenu::displayWelcomeMessage()
          << "> Press Enter to continue.";
 
     cin.get();
-    // clearScreen();
+    clearScreen();
 }
 
 int MainMenu::displayMainMenu()
@@ -44,11 +47,11 @@ int MainMenu::displayMainMenu()
         cout << "\n"
              << "       * * * * * * * * * * * * * * * * * * * * * * *\n"
              << "       *                                           *\n"
-             << "       *            Menu Principal                 *\n"
+             << "       *            CHOOSE YOUR IMAGE              *\n"
              << "       *                                           *\n"
-             << "       *      (1) Charger une image                *\n"
-             << "       *      (2) Accéder au menu de traitement    *\n"
-             << "       *      (3) Sauvegarder l'image              *\n"
+             << "       *      (1)                                  *\n"
+             << "       *      (2)                                  *\n"
+             << "       *      (3)                                  *\n"
              << "       *                                           *\n"
              << "       *      (4) Quitter                          *\n"
              << "       *                                           *\n"
@@ -76,14 +79,14 @@ int MainMenu::displayProcessingMenu()
              << "       *                                           *\n"
              << "       *           IMAGE PROCESSING MENU           *\n"
              << "       *                                           *\n"
-             << "       *      (1) Canny Edge Detection             *\n"
-             << "       *      (2) Denoising                        *\n"
-             << "       *      (3) Fourier Transform                *\n"
-             << "       *      (4) Gaussian Blur                    *\n"
-             << "       *      (5) Median Filter                    *\n"
-             << "       *      (6) Resizing                         *\n"
-             << "       *      (7) Rotation                         *\n"
-             << "       *      (8) Sobel Filter                     *\n"
+             << "       *      (1) Canny Edge Detection v           *\n"
+             << "       *      (2) Denoising            t           *\n"
+             << "       *      (3) Fourier Transform    t           *\n"
+             << "       *      (4) Gaussian Blur        l           *\n"
+             << "       *      (5) Median Filter        l           *\n"
+             << "       *      (6) Resizing            tvl          *\n"
+             << "       *      (7) Rotation             t           *\n"
+             << "       *      (8) Sobel Filter         v           *\n"
              << "       *                                           *\n"
              << "       *      (9) Quit                             *\n"
              << "       *                                           *\n"
@@ -142,30 +145,29 @@ void MainMenu::handleProcessingChoice(int userChoice)
     switch (userChoice)
     {
     case 1:
-        cout << "You chose: Canny Edge Detection" << endl; // Debug
+        cout << "You chose: Canny Edge Detection" << endl; 
         CannyMenu cannyMenu;
         cannyMenu.cannyMenu(image);
     case 2:
-        cout << "You chose: Denoising" << endl; // Debug
-        DenoisingMenu denoisingMenu;
+        cout << "You chose: Denoising" << endl; 
         denoisingMenu.denoisingMenu(image);
     case 3:
-        cout << "You chose: Fourier Transform" << endl; // Debug
+        cout << "You chose: Fourier Transform" << endl; 
         DiscreteFourierTransformMenu::displayDFTMenu(image);
     case 4:
-        cout << "You chose: Gaussian Blur" << endl; // Debug
+        cout << "You chose: Gaussian Blur" << endl; 
         GaussianBlurMenu::displayGaussianMenu(image);
     case 5:
-        cout << "You chose: Median Filter" << endl; // Debug
+        cout << "You chose: Median Filter" << endl; 
         break;
     case 6:
-        cout << "You chose: Resizing" << endl; // Debug
+        cout << "You chose: Resizing" << endl; 
         break;
     case 7:
-        cout << "You chose: Rotation" << endl; // Debug
+        cout << "You chose: Rotation" << endl;
         break;
     case 8:
-        cout << "You chose:  Sobel Filter" << endl; // Debug
+        cout << "You chose:  Sobel Filter" << endl; 
         break;
     case 9:
         cout << endl
@@ -207,17 +209,17 @@ void MainMenu::handleMenuChoice(int userChoice)
     switch (userChoice)
     {
     case 1:
-        cout << "You chose: Charger une image" << endl; // Debug
+        cout << "You chose: Charger une image" << endl;
         cout << "Enter the path to the image: ";
         cin >> imagePath;
         image = imageManager.loadImage(imagePath);
         return;
     case 2:
-        cout << "You chose: Accéder au menu de traitement" << endl; // Debug
+        cout << "You chose: Accéder au menu de traitement" << endl; 
         userChoice = displayProcessingMenu();
         handleProcessingChoice(userChoice);
     case 3:
-        cout << "You chose: Sauvegarder l'image" << endl; // Debug
+        cout << "You chose: Sauvegarder l'image" << endl; 
         break;
     case 4:
         cout << endl
@@ -231,3 +233,50 @@ void MainMenu::handleMenuChoice(int userChoice)
         break;
     }
 }
+
+int MainMenu::cannyEdgeDetectorSubmenuChoice()
+{
+
+    int cannySubmenuChoice;
+    do
+    {
+        cout << "\n"
+             << "       * * * * * * * * * * * * * * * * * * * * * * * * * *\n"
+             << "       *                                                 *\n"
+             << "       *             THREAD OPTIONS MENU                 *\n"
+             << "       *                                                 *\n"
+             << "       *   (1) Apply Canny filter with a Trackbar        *\n"
+             << "       *   (2) Graph average time vs. number of threads  *\n"
+             << "       *                                                 *\n"
+             << "       *   (3) Back to Menu                              *\n"
+             << "       *                                                 *\n"
+             << "       * * * * * * * * * * * * * * * * * * * * * * * * * *\n\n"
+             << "> Select an option from the submenu to continue: ";
+        cin >> cannySubmenuChoice;
+    } while (!inputValidator.isValidDigit(cannySubmenuChoice, 3));
+    return cannySubmenuChoice;
+}
+
+int MainMenu::handleCannySubmenuChoice(int cannySubmenuChoice)
+{
+    clearScreen();
+    do
+    {
+        switch (cannySubmenuChoice)
+        {
+        case 1:
+            cannyEdgeDetection.runCannyEdgeDetection();
+            break;
+        case 2:
+            break;
+        case 3:
+            return 0;
+            break;
+        default:
+            cout << "Invalid submenu choice. Please Try again." << endl;
+            break;
+        }
+        cin >> cannySubmenuChoice;
+    } while (!inputValidator.isValidDigit(cannySubmenuChoice, 3));
+    return cannySubmenuChoice;
+};
