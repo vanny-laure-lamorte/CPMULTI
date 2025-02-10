@@ -1,4 +1,4 @@
-#include "../include/TerminalDisplay.hpp"
+// #include "TerminalDisplay.hpp"
 
 InputValidator inputValidator;
 CannyEdgeDetection cannyEdgeDetection;

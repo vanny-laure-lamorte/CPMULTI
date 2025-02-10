@@ -2,7 +2,9 @@
 #define TERMINALDISPLAY_HPP
 #include "InputValidator.hpp"
 #include "CannyEdgeDetection.hpp"
+#include "CannyEdgeDetection.hpp"
 #include "GaussianBlurProcessor.hpp"
+#include "DiscreteFourierTransform.hpp"
 #include <iostream>
 using namespace std;
 #include <limits>
@@ -37,7 +39,9 @@ public:
     void handleMenuChoice(int userMenuChoice);
 
     /**
-     * Function
+     * @brief 
+     * 
+     * @return int 
      */
     int submenuChoice();
 
