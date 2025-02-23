@@ -5,7 +5,10 @@
             "includePath": [
                 "${default}",
                 "C:/opencv/build/include",
-                "${workspaceFolder}"            ],
+                "${workspaceFolder}",
+                "C:/Users/tslem/AppData/Local/Programs/Python/Python312/include",
+                "C:/Users/tslem/AppData/Local/Programs/Python/Python312/Lib/site-packages/numpy/core/include"
+            ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
