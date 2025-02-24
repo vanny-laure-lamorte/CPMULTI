@@ -1,6 +1,5 @@
 #include "CannyEdgeDetection.hpp"
 
-
 void CannyEdgeDetection::CannyThreshold(int, void*)
 {
     blur( src_gray, detected_edges, Size(3,3) );
@@ -28,8 +27,4 @@ void CannyEdgeDetection::runCannyEdgeDetection()
     }, this);
     CannyThreshold(0, 0);
     waitKey(0);
-}
-
-int  CannyEdgeDetection::applyCannyWithThreads(int numThreads){
-    
-}
+};
