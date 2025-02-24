@@ -9,14 +9,9 @@ void CannyEdgeDetection::CannyThreshold(int, void*)
     imshow( window_name, dst );
 }
 
-void CannyEdgeDetection::runCannyEdgeDetection()
+void CannyEdgeDetection::runCannyEdgeDetection(cv::Mat& image)
 {
-    src = imread( "../assets/Test1.jpg", IMREAD_COLOR );
-    if( src.empty() )
-    {
-        cout << "Could not open or find the image!\n" << endl;
-        return;
-    }
+    src = image;
     
     dst.create( src.size(), src.type() );
     cvtColor( src, src_gray, COLOR_BGR2GRAY );

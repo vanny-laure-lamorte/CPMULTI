@@ -16,6 +16,9 @@ using namespace std;
 class MainMenu
 {
 public:
+
+    int  userMenuChoice;
+
     /**
      * Function serves as the main control loop of the application.
      * The loop terminates when the user chooses option 9 to quit the program.

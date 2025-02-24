@@ -3,27 +3,30 @@
 
 #include "denoisingMenu.ui.hpp"
 
-void DenoisingMenu::denoisingMenu(cv::Mat& img)
+using namespace std;
+using namespace cv;
+
+void DenoisingMenu::denoisingMenu(Mat& img)
 {
     if (img.empty()) {
-        std::cerr << "Erreur: Aucune image chargée !" << std::endl;
+        cerr << "Error: No image loaded!" << endl;
         return;
     }
 
     int h;
-    std::cout << "Entrez le paramètre de débruitage (10-50 recommandé) : ";
-    std::cin >> h;
+    cout << "Enter the denoising parameter (10-50 recommended): ";
+    cin >> h;
 
     if (h < 1 || h > 100) {
-        std::cerr << "Valeur invalide, utilisation de la valeur par défaut (10)." << std::endl;
+        cerr << "Invalid value, using default value (10)." << endl;
         h = 10;
     }
 
-    cv::Mat denoisedImage;
-    cv::fastNlMeansDenoisingColored(img, denoisedImage, h, h, 7, 21);
+    Mat denoisedImage;
+    fastNlMeansDenoisingColored(img, denoisedImage, h, h, 7, 21);
 
     img = denoisedImage;
 
-    cv::imshow("Denoised Image", img);
-    cv::waitKey(0);
+    imshow("Denoised Image", img);
+    waitKey(0);
 }

@@ -29,7 +29,7 @@ public:
     /**
      * Function to allows dynamically applying the Canny edge detector to an image using a trackbar to adjust detection thresholds.
      */
-    void runCannyEdgeDetection();
+    void runCannyEdgeDetection(cv::Mat& image);
     /**
      * Function to allows dynamically applying the Canny edge detector to an image using a trackbar to adjust detection thresholds.
      */
