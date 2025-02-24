@@ -27,16 +27,15 @@ public:
     void displayWelcomeMessage();
 
     /**
-     * Function to display the menu options et get user's choice
-     * @return int choice
+     * Function to display images options et get user's choice
      */
-    int displayMainMenu();
+    int displaySubmenuImageSelection();
 
     /**
      * Function to display the menu options et get user's choice
      * @return int choice
      */
-    int displayProcessingMenu();
+    int displayFilterMenu();
 
     /**
      * Function to display a rectangle with a title
@@ -49,14 +48,8 @@ public:
      * It clears the terminal screen, displays the title of the selected menu option a
      * @param int userMenuChoice
      */
-    void handleProcessingChoice(int userMenuChoice);
+    void handleFilterChoice(int userMenuChoice);
 
-    /**
-     * Function takes an integer input representing the user's choice from the menu.
-     * It clears the terminal screen, displays the title of the selected menu option a
-     * @param int userMenuChoice
-     */
-    void handleMenuChoice(int userMenuChoice);
 
     /**
      * Function

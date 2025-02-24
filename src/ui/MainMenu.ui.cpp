@@ -10,16 +10,22 @@ ImageManager imageManager;
 CannyEdgeDetection cannyEdgeDetection;
 DenoisingMenu denoisingMenu;
 
-
-void MainMenu::mainMenu(){
-    int userChoice;
+void MainMenu::mainMenu()
+{
     displayWelcomeMessage();
-    do{
-        userChoice = displayMainMenu();
-        handleMenuChoice(userChoice);
-    } while (userChoice != 4);
+
+    int userMenuChoice;
+    do
+    {
+        userMenuChoice = displaySubmenuImageSelection();
+        if (userMenuChoice != 10)
+        {
+            int userFilterMenuChoice = displayFilterMenu();
+            handleFilterChoice(userFilterMenuChoice);
+        }
+    } while (userMenuChoice != 10);
     cout << endl
-    << "Goodbye! See you soon!" << endl;
+         << "Goodbye! See you soon!" << endl;
 }
 
 void MainMenu::displayWelcomeMessage()
@@ -39,9 +45,9 @@ void MainMenu::displayWelcomeMessage()
     clearScreen();
 }
 
-int MainMenu::displayMainMenu()
+int MainMenu::displaySubmenuImageSelection()
 {
-    int choice;
+    int choiceImageUser;
     do
     {
         cout << "\n"
@@ -49,27 +55,33 @@ int MainMenu::displayMainMenu()
              << "       *                                           *\n"
              << "       *            CHOOSE YOUR IMAGE              *\n"
              << "       *                                           *\n"
-             << "       *      (1)                                  *\n"
-             << "       *      (2)                                  *\n"
-             << "       *      (3)                                  *\n"
-             << "       *                                           *\n"
-             << "       *      (4) Quitter                          *\n"
+             << "       *      (1) Dragon                           *\n"
+             << "       *      (2) Horse                            *\n"
+             << "       *      (3) Monkey                           *\n"
+             << "       *      (4) Pig                              *\n"
+             << "       *      (5) Rabbit                           *\n"
+             << "       *      (6) Rooster                          *\n"
+             << "       *      (7) Sheep                            *\n"
+             << "       *      (8) Snake                            *\n"
+             << "       *      (9) Tiger                            *\n"
              << "       *                                           *\n"
              << "       * * * * * * * * * * * * * * * * * * * * * * * \n\n"
-             << "> Select an option from the menu to continue: ";
-        cin >> choice;
+             << "> Select an image: ";
+        cin >> choiceImageUser;
 
         if (cin.fail())
         {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            choice = -1;
+            choiceImageUser = -1;
         }
-    } while (!inputValidator.isValidDigit(choice, 4));
-    return choice;
+    } while (!inputValidator.isValidDigit(choiceImageUser, 9));
+
+    image = imageManager.loadImage(choiceImageUser);
+    return choiceImageUser;
 }
 
-int MainMenu::displayProcessingMenu()
+int MainMenu::displayFilterMenu()
 {
     int choice;
     do
@@ -88,10 +100,11 @@ int MainMenu::displayProcessingMenu()
              << "       *      (7) Rotation             t           *\n"
              << "       *      (8) Sobel Filter         v           *\n"
              << "       *                                           *\n"
-             << "       *      (9) Quit                             *\n"
+             << "       *      (9) Previous                         *\n"
+             << "       *      (10) Quit                            *\n"
              << "       *                                           *\n"
              << "       * * * * * * * * * * * * * * * * * * * * * * * \n\n"
-             << "> Select an option from the menu to continue: ";
+             << "> Select an option from the menu: ";
         cin >> choice;
 
         if (cin.fail())
@@ -100,7 +113,7 @@ int MainMenu::displayProcessingMenu()
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             choice = -1;
         }
-    } while (!inputValidator.isValidDigit(choice, 9));
+    } while (!inputValidator.isValidDigit(choice, 10));
     return choice;
 }
 
@@ -115,11 +128,9 @@ void MainMenu::displayRectangleWithTitle(string text)
     cout << endl;
 }
 
-void MainMenu::handleProcessingChoice(int userChoice)
+void MainMenu::handleFilterChoice(int userFilterChoice)
 {
-
     // clearScreen();
-
     vector<string> menuListTitle = {
         "CANNY EDGE DETECTION",
         "DENOISING",
@@ -130,44 +141,38 @@ void MainMenu::handleProcessingChoice(int userChoice)
         "ROTATION",
         "SOBEL FILTER"};
 
-    if (userChoice >= 1 && userChoice <= menuListTitle.size())
+    if (userFilterChoice >= 1 && userFilterChoice <= menuListTitle.size())
     {
-        displayRectangleWithTitle(menuListTitle[userChoice - 1]);
+        displayRectangleWithTitle(menuListTitle[userFilterChoice - 1]);
     }
-    else if (userChoice != 0)
+    else if (userFilterChoice != 0)
     {
         cout << "Invalid Menu choice. Try again." << endl;
         return;
     }
 
-    int submenuOption;
-
-    switch (userChoice)
+    switch (userFilterChoice)
     {
     case 1:
-        cout << "You chose: Canny Edge Detection" << endl; 
         CannyMenu cannyMenu;
         cannyMenu.cannyMenu(image);
     case 2:
-        cout << "You chose: Denoising" << endl; 
         denoisingMenu.denoisingMenu(image);
     case 3:
-        cout << "You chose: Fourier Transform" << endl; 
         DiscreteFourierTransformMenu::displayDFTMenu(image);
     case 4:
-        cout << "You chose: Gaussian Blur" << endl; 
         GaussianBlurMenu::displayGaussianMenu(image);
     case 5:
-        cout << "You chose: Median Filter" << endl; 
+        cout << "You chose: Median Filter" << endl;
         break;
     case 6:
-        cout << "You chose: Resizing" << endl; 
+        cout << "You chose: Resizing" << endl;
         break;
     case 7:
         cout << "You chose: Rotation" << endl;
         break;
     case 8:
-        cout << "You chose:  Sobel Filter" << endl; 
+        cout << "You chose:  Sobel Filter" << endl;
         break;
     case 9:
         cout << endl
@@ -180,59 +185,7 @@ void MainMenu::handleProcessingChoice(int userChoice)
         cout << "Invalid Menu choice. Try again." << endl;
         break;
     }
-}
-
-void MainMenu::handleMenuChoice(int userChoice)
-{
-
-    // clearScreen();
-    string imagePath;
-
-    vector<string> menuListTitle = {
-        "CHARGER UNE IMAGE",
-        "ACCEDER AU MENU DE TRAITEMENT",
-        "SAUVEGARDER L'IMAGE"
-    };
-
-    if (userChoice >= 1 && userChoice <= menuListTitle.size())
-    {
-        displayRectangleWithTitle(menuListTitle[userChoice - 1]);
-    }
-    else if (userChoice != 0)
-    {
-        cout << "Invalid Menu choice. Try again." << endl;
-        return;
-    }
-
-    int submenuOption;
-
-    switch (userChoice)
-    {
-    case 1:
-        cout << "You chose: Charger une image" << endl;
-        cout << "Enter the path to the image: ";
-        cin >> imagePath;
-        image = imageManager.loadImage(imagePath);
-        return;
-    case 2:
-        cout << "You chose: Accéder au menu de traitement" << endl; 
-        userChoice = displayProcessingMenu();
-        handleProcessingChoice(userChoice);
-    case 3:
-        cout << "You chose: Sauvegarder l'image" << endl; 
-        break;
-    case 4:
-        cout << endl
-             << endl
-             << "Goodbye. Hope to see you soon ! :)" << endl
-             << endl;
-        exit(0);
-        break;
-    default:
-        cout << "Invalid Menu choice. Try again." << endl;
-        break;
-    }
-}
+};
 
 int MainMenu::cannyEdgeDetectorSubmenuChoice()
 {
