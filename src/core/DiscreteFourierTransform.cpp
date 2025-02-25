@@ -10,33 +10,41 @@ DiscreteFourierTransform::DiscreteFourierTransform(const Mat& image) {
         cerr << "Error: Provided image is empty!" << endl;
         return;
     }
-    img = image.clone();
+    imgInput = image.clone();
 }
 
 DiscreteFourierTransform::~DiscreteFourierTransform() {
     destroyAllWindows();
 }
 
-void DiscreteFourierTransform::computeDFT() {
+void DiscreteFourierTransform::computeDFT(ThreadManager::Mode mode, int numThreads) {
+    img = imgInput.clone();
     if (img.empty()) {
         cerr << "Error: No image loaded for DFT computation!" << endl;
         return;
     }
-
-        
     if (img.channels() > 1) {
         cvtColor(img, img, COLOR_BGR2GRAY);
     }
-    img.convertTo(img, CV_32F);
 
-    int y = getOptimalDFTSize(img.rows);
-    int x = getOptimalDFTSize(img.cols);
+    img.convertTo(img, CV_32F, 1.0 / 255.0);
 
-    copyMakeBorder(img, padded, 0, y - img.rows, 0, x - img.cols, BORDER_CONSTANT, Scalar::all(0));
+    int optimalRows = getOptimalDFTSize(img.rows);
+    int optimalCols = getOptimalDFTSize(img.cols);
 
-    Mat planes[] = {Mat_<float>(padded), Mat::zeros(padded.size(), CV_32F)};
+    copyMakeBorder(img, padded, 0, optimalRows - img.rows, 0, optimalCols - img.cols, BORDER_CONSTANT, Scalar::all(0));
+    padded.convertTo(padded, CV_32F);
+    Mat planes[] = {padded.clone(), Mat::zeros(padded.size(), CV_32F)};
     merge(planes, 2, complexImage);
-    dft(complexImage, complexImage);
+    ThreadManager::processImage(mode, numThreads, complexImage, [](Mat& region, int, int) {
+        dft(region, region);
+    });
+}
+
+void DiscreteFourierTransform::dftProcessing(Mat& image, int yStart, int yEnd) {
+    Mat tempRegion = image.rowRange(yStart, yEnd).clone();
+    dft(tempRegion, tempRegion);
+    tempRegion.copyTo(image.rowRange(yStart, yEnd));
 }
 
 void DiscreteFourierTransform::computeMagnitudeSpectrum() {
@@ -129,5 +137,58 @@ void DiscreteFourierTransform::showRotatedImage() {
 }
 
 void DiscreteFourierTransform::printMatrices() {
-    cout << "Complex Image Matrix: " << endl << complexImage << endl;
+    if (complexImage.empty()) {
+        cerr << "Error: Complex image is empty! Compute DFT first." << endl;
+        return;
+    }
+
+    Mat planes[2];
+    split(complexImage, planes);
+    Mat realPart = planes[0];
+    Mat imagPart = planes[1];
+
+    cout << "********** COMPLEX IMAGE MATRIX **********\n";
+    for (int i = 0; i < realPart.rows; ++i) {
+        for (int j = 0; j < realPart.cols; ++j) {
+            double real = realPart.at<float>(i, j);
+            double imag = imagPart.at<float>(i, j);
+
+            cout << "(" << real << " + " << imag << "i) ";
+        }
+        cout << endl;
+    }
+    cout << "******************************************\n";
+}
+
+
+void DiscreteFourierTransform::benchmarkProcessing() {
+    cout << "\n********** BENCHMARKING THREAD PERFORMANCE **********\n";
+    cout << "Comparing Single-threaded, Multi-threaded, and Multi-threaded with Mutex...\n\n";
+
+    vector<ThreadManager::Mode> modes = {ThreadManager::SINGLE_THREAD, ThreadManager::MULTI_THREAD, ThreadManager::MULTI_THREAD_MUTEX};
+    vector<string> modeNames = {"Single-threaded", "Multi-threaded", "Multi-threaded with Mutex"};
+
+    int numThreads = 4;
+    vector<double> executionTimes;
+
+    for (size_t i = 0; i < modes.size(); ++i) {
+        cout << "Testing mode: " << modeNames[i] << "...\n";
+
+        auto start = chrono::high_resolution_clock::now();
+        computeDFT(modes[i], (modes[i] == ThreadManager::SINGLE_THREAD) ? 1 : numThreads);
+        auto end = chrono::high_resolution_clock::now();
+
+        double elapsedTime = chrono::duration<double>(end - start).count();
+        executionTimes.push_back(elapsedTime);
+
+        cout << modeNames[i] << " Execution Time: " << elapsedTime << " seconds\n";
+    }
+
+    cout << "\n********** PERFORMANCE SUMMARY **********\n";
+    cout << "Execution times for different modes:\n";
+    for (size_t i = 0; i < modeNames.size(); ++i) {
+        cout << modeNames[i] << ": " << executionTimes[i] << " seconds\n";
+    }
+
+    cout << "\nBenchmark complete!\n";
 }
