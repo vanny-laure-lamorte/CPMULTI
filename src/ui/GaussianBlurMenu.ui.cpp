@@ -13,13 +13,18 @@ void GaussianBlurMenu::displayGaussianMenu(cv::Mat& image) {
 
     int choice;
     do {
-        cout << "\n************* GAUSSIAN BLUR MENU *************\n";
-        cout << "1. Apply Gaussian Blur (Single-threaded)\n";
-        cout << "2. Apply Gaussian Blur (Multi-threaded)\n";
-        cout << "3. Graph Execution Time vs. Threads\n";
-        cout << "4. Custom Intensity Blur\n";
-        cout << "5. Exit\n";
-        cout << "Choose an option: ";
+        cout << "\n"
+        << "       * * * * * * * * * * * * * * * * * * * * * * * * * *\n"
+        << "       *                                                 *\n"
+        << "       *      (1) Apply Gaussian Blur (Single-threaded)  *\n"
+        << "       *      (2) Apply Gaussian Blur (Multi-threaded)   *\n"
+        << "       *      (3) Graph Execution Time vs. Threads       *\n"
+        << "       *      (4) Custom Intensity Blur                  *\n"
+        << "       *                                                 *\n"
+        << "       *      (5) Exit                                   *\n"
+        << "       *                                                 *\n"
+        << "       * * * * * * * * * * * * * * * * * * * * * * * * * * \n\n"
+        << "> Select an option from the menu: ";
         cin >> choice;
 
         switch (choice) {

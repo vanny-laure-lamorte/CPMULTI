@@ -1,5 +1,5 @@
 #include "MainMenu.ui.hpp"
-#include "CannyMenu.ui.hpp"
+#include "CannyEdgeDetection.hpp"
 #include "DenoisingMenu.ui.hpp"
 #include "discreteFourierTransformMenu.ui.hpp"
 #include "GaussianBlurMenu.ui.hpp"
@@ -14,16 +14,16 @@ void MainMenu::mainMenu()
 {
     displayWelcomeMessage();
 
-    int userMenuChoice;
+   userMenuChoice = displaySubmenuImageSelection();
+
+   int userFilterMenuChoice;
+
     do
     {
-        userMenuChoice = displaySubmenuImageSelection();
-        if (userMenuChoice != 10)
-        {
-            int userFilterMenuChoice = displayFilterMenu();
-            handleFilterChoice(userFilterMenuChoice);
-        }
-    } while (userMenuChoice != 10);
+        userFilterMenuChoice = displayFilterMenu();
+        handleFilterChoice(userFilterMenuChoice);
+
+    } while (userFilterMenuChoice != 10);
     cout << endl
          << "Goodbye! See you soon!" << endl;
 }
@@ -83,6 +83,8 @@ int MainMenu::displaySubmenuImageSelection()
 
 int MainMenu::displayFilterMenu()
 {
+    // clearScreen();
+
     int choice;
     do
     {
@@ -91,14 +93,14 @@ int MainMenu::displayFilterMenu()
              << "       *                                           *\n"
              << "       *           IMAGE PROCESSING MENU           *\n"
              << "       *                                           *\n"
-             << "       *      (1) Canny Edge Detection v           *\n"
-             << "       *      (2) Denoising            t           *\n"
-             << "       *      (3) Fourier Transform    t           *\n"
-             << "       *      (4) Gaussian Blur        l           *\n"
-             << "       *      (5) Median Filter        l           *\n"
-             << "       *      (6) Resizing            tvl          *\n"
-             << "       *      (7) Rotation             t           *\n"
-             << "       *      (8) Sobel Filter         v           *\n"
+             << "       *      (1) Canny Edge Detection             *\n"
+             << "       *      (2) Denoising                        *\n"
+             << "       *      (3) Fourier Transform                *\n"
+             << "       *      (4) Gaussian Blur                    *\n"
+             << "       *      (5) Median Filter                    *\n"
+             << "       *      (6) Resizing                         *\n"
+             << "       *      (7) Rotation                         *\n"
+             << "       *      (8) Sobel Filter                     *\n"
              << "       *                                           *\n"
              << "       *      (9) Previous                         *\n"
              << "       *      (10) Quit                            *\n"
@@ -130,7 +132,6 @@ void MainMenu::displayRectangleWithTitle(string text)
 
 void MainMenu::handleFilterChoice(int userFilterChoice)
 {
-    // clearScreen();
     vector<string> menuListTitle = {
         "CANNY EDGE DETECTION",
         "DENOISING",
@@ -139,7 +140,9 @@ void MainMenu::handleFilterChoice(int userFilterChoice)
         "MEDIAN FILTER",
         "RESIZE",
         "ROTATION",
-        "SOBEL FILTER"};
+        "SOBEL FILTER",
+        "PREVIOUS",
+        "QUIT"};
 
     if (userFilterChoice >= 1 && userFilterChoice <= menuListTitle.size())
     {
@@ -154,14 +157,17 @@ void MainMenu::handleFilterChoice(int userFilterChoice)
     switch (userFilterChoice)
     {
     case 1:
-        CannyMenu cannyMenu;
-        cannyMenu.cannyMenu(image);
+        cannyEdgeDetection.runCannyEdgeDetection(image);
+        break;
     case 2:
         denoisingMenu.denoisingMenu(image);
+        break;
     case 3:
         DiscreteFourierTransformMenu::displayDFTMenu(image);
+        break;
     case 4:
         GaussianBlurMenu::displayGaussianMenu(image);
+        break;
     case 5:
         cout << "You chose: Median Filter" << endl;
         break;
@@ -175,12 +181,13 @@ void MainMenu::handleFilterChoice(int userFilterChoice)
         cout << "You chose:  Sobel Filter" << endl;
         break;
     case 9:
-        cout << endl
-             << endl
-             << "Goodbye. Hope to see you soon ! :)" << endl
-             << endl;
-        exit(0);
+        clearScreen();
+        userMenuChoice = displaySubmenuImageSelection();
         break;
+    case 10:
+        clearScreen();
+        break;
+
     default:
         cout << "Invalid Menu choice. Try again." << endl;
         break;
@@ -218,7 +225,7 @@ int MainMenu::handleCannySubmenuChoice(int cannySubmenuChoice)
         switch (cannySubmenuChoice)
         {
         case 1:
-            cannyEdgeDetection.runCannyEdgeDetection();
+            cannyEdgeDetection.runCannyEdgeDetection(image);
             break;
         case 2:
             break;
