@@ -23,7 +23,7 @@ void DiscreteFourierTransformMenu::displayDFTMenu(Mat& image) {
         << "       *      (2) Compute Magnitude Spectrum       *\n"
         << "       *      (3) Show Results                     *\n"
         << "       *      (4) Benchmark Processing Speed       *\n"
-        << "       *      (5) Previous                         *\n"
+        << "       *      (5) Rotate Image using complex image *\n"
         << "       *      (6) Quit                             *\n"
         << "       *                                           *\n"
         << "       * * * * * * * * * * * * * * * * * * * * * * *\n\n";
@@ -71,19 +71,23 @@ void DiscreteFourierTransformMenu::displayDFTMenu(Mat& image) {
                 cout << "Magnitude Spectrum Computed.\n";
                 break;
             case 3:
-                // dftProcessor.showResult();
-                dftProcessor.printMatrices();
+                dftProcessor.showResult();
                 break;
             case 4:
-                // dftProcessor.benchmarkProcessing();
-                dftProcessor.rotateImageUsingDFT(180);
+                dftProcessor.benchmarkProcessing();
                 break;
             case 5:
-                cout << "Exiting Fourier Transform Menu...\n";
+                double angle;
+                cout << "Enter angle to rotate image by: ";
+                cin >> angle;
+                dftProcessor.rotateImageUsingDFT(angle);
+                dftProcessor.showRotatedImage();
+                break;
+            case 6:
+                cout << "Exiting...\n";
                 break;
             default:
                 cout << "Invalid choice, try again.\n";
         }
-    } while (choice != 5);
+    } while (choice != 7);
 }
-    
