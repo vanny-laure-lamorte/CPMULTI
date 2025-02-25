@@ -3,6 +3,7 @@
 
 #include <opencv2/opencv.hpp>
 #include "GaussianBlurProcessor.hpp"
+#include "InputValidator.hpp"
 
 class GaussianBlurMenu {
 public:

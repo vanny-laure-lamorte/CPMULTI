@@ -51,21 +51,7 @@ public:
      * It clears the terminal screen, displays the title of the selected menu option a
      * @param int userMenuChoice
      */
-    void handleFilterChoice(int userMenuChoice);
-
-
-    /**
-     * Function
-     * @return int
-     */
-    int cannyEdgeDetectorSubmenuChoice();
-
-    /**
-     * Function takes an integer input representing the user's choice from the canny menu.
-     * It clears the terminal screen and performs the corresponding image processing operation.
-     * @param int subMenuChoice
-     */
-    int handleCannySubmenuChoice(int cannySubmenuChoice);
+    void handleFilterChoice(int userMenuChoice);    
 
     /**
      * @brief

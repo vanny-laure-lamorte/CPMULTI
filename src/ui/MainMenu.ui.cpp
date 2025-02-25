@@ -1,5 +1,6 @@
 #include "MainMenu.ui.hpp"
 #include "CannyEdgeDetection.hpp"
+#include "CannyMenu.ui.hpp"
 #include "DenoisingMenu.ui.hpp"
 #include "discreteFourierTransformMenu.ui.hpp"
 #include "GaussianBlurMenu.ui.hpp"
@@ -7,7 +8,8 @@
 
 InputValidator inputValidator;
 ImageManager imageManager;
-CannyEdgeDetection cannyEdgeDetection;
+// CannyEdgeDetection cannyEdgeDetection;
+CannyMenu cannyMenu;
 DenoisingMenu denoisingMenu;
 
 void MainMenu::mainMenu()
@@ -157,7 +159,8 @@ void MainMenu::handleFilterChoice(int userFilterChoice)
     switch (userFilterChoice)
     {
     case 1:
-        cannyEdgeDetection.runCannyEdgeDetection(image);
+        // cannyEdgeDetection.runCannyEdgeDetection(image);
+        cannyMenu.cannyMenu(image);         
         break;
     case 2:
         denoisingMenu.denoisingMenu(image);
@@ -192,51 +195,4 @@ void MainMenu::handleFilterChoice(int userFilterChoice)
         cout << "Invalid Menu choice. Try again." << endl;
         break;
     }
-};
-
-int MainMenu::cannyEdgeDetectorSubmenuChoice()
-{
-
-    int cannySubmenuChoice;
-    do
-    {
-        cout << "\n"
-             << "       * * * * * * * * * * * * * * * * * * * * * * * * * *\n"
-             << "       *                                                 *\n"
-             << "       *             THREAD OPTIONS MENU                 *\n"
-             << "       *                                                 *\n"
-             << "       *   (1) Apply Canny filter with a Trackbar        *\n"
-             << "       *   (2) Graph average time vs. number of threads  *\n"
-             << "       *                                                 *\n"
-             << "       *   (3) Back to Menu                              *\n"
-             << "       *                                                 *\n"
-             << "       * * * * * * * * * * * * * * * * * * * * * * * * * *\n\n"
-             << "> Select an option from the submenu to continue: ";
-        cin >> cannySubmenuChoice;
-    } while (!inputValidator.isValidDigit(cannySubmenuChoice, 3));
-    return cannySubmenuChoice;
-}
-
-int MainMenu::handleCannySubmenuChoice(int cannySubmenuChoice)
-{
-    clearScreen();
-    do
-    {
-        switch (cannySubmenuChoice)
-        {
-        case 1:
-            cannyEdgeDetection.runCannyEdgeDetection(image);
-            break;
-        case 2:
-            break;
-        case 3:
-            return 0;
-            break;
-        default:
-            cout << "Invalid submenu choice. Please Try again." << endl;
-            break;
-        }
-        cin >> cannySubmenuChoice;
-    } while (!inputValidator.isValidDigit(cannySubmenuChoice, 3));
-    return cannySubmenuChoice;
 };

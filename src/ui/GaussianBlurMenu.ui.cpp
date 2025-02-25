@@ -1,7 +1,9 @@
 #include "GaussianBlurMenu.ui.hpp"
 #include <iostream>
 
+
 using namespace std;
+InputValidator inputValidator2;
 
 void GaussianBlurMenu::displayGaussianMenu(cv::Mat& image) {
     if (image.empty()) {
@@ -33,7 +35,7 @@ void GaussianBlurMenu::displayGaussianMenu(cv::Mat& image) {
                 break;
             case 2: {
                 int threads;
-                cout << "Enter number of threads: ";
+                cout << "> Enter number of threads: ";
                 cin >> threads;
                 blurProcessor.GaussianBlurWithCustomThreads(threads);
                 break;
@@ -43,7 +45,7 @@ void GaussianBlurMenu::displayGaussianMenu(cv::Mat& image) {
                 break;
             case 4: {
                 int size;
-                cout << "Enter kernel size (odd number, e.g., 3, 5, 7): ";
+                cout << "> Enter kernel size (odd number, e.g., 3, 5, 7): ";
                 cin >> size;
                 blurProcessor.customGaussianBlurIntensity(Size(size, size));
                 break;
@@ -54,5 +56,5 @@ void GaussianBlurMenu::displayGaussianMenu(cv::Mat& image) {
             default:
                 cout << "Invalid choice, try again.\n";
         }
-    } while (choice != 5);
+    } while (!inputValidator2.isValidDigit(choice, 5));
 }
