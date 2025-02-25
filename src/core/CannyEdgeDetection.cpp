@@ -61,7 +61,7 @@ void CannyEdgeDetection::applyCannyEdgeDetectionWithThreads(cv::Mat &img, int nu
         cv::Mat edgesChunk;
         cv::Canny(chunk, edgesChunk, lowThreshold, highThreshold); 
         edgesChunk.copyTo(edges(cv::Range(startRow, endRow), cv::Range::all()));
-    };
+    };    
 
     for (int i = 0; i < numThreads; ++i) {
         int startRow = i * chunkHeight;
@@ -78,6 +78,8 @@ void CannyEdgeDetection::applyCannyEdgeDetectionWithThreads(cv::Mat &img, int nu
         std::cerr << "Error: Empty image, cannot display!" << std::endl;
         return;
     }
+    
+    cout << "Execution time with " << numThreads << " threads: " << std::chrono::duration<double>(std::chrono::high_resolution_clock::now() - start).count() << "s" << endl;
 
     cv::namedWindow("Canny Edge Detection", cv::WINDOW_NORMAL);
     cv::imshow("Canny Edge Detection", edges);
@@ -148,5 +150,5 @@ double CannyEdgeDetection::timeApplyCannyEdge(cv::Mat &img, int numThreads){
         t.join();
     }
 
-    return std::chrono::duration<double>(std::chrono::high_resolution_clock::now() - start).count();;
+    return std::chrono::duration<double>(std::chrono::high_resolution_clock::now() - start).count();
 }

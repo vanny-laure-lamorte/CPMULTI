@@ -10,13 +10,6 @@
 class CannyMenu
 {
     public:
-    // CannyMenu(cv::Mat img = cv::Mat())
-    // : image(img)
-    // {
-    // }
-
-    // ~CannyMenu() {}
-
     void cannyMenu(cv::Mat &img);
     int askForNumThreads();
 

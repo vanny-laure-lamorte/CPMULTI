@@ -89,8 +89,6 @@ public:
      * The more intense the blur, the more the image is blurred
      */
     void customGaussianBlurIntensity(Size intensity);
-
-
 };
 
 #endif // GAUSSIAN_BLUR_PROCESSOR_HPP
