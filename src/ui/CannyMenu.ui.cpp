@@ -1,6 +1,7 @@
 #include "CannyMenu.ui.hpp"
 
 #include <iostream>
+using namespace std;
 
 void CannyMenu::cannyMenu(cv::Mat& img) {
 

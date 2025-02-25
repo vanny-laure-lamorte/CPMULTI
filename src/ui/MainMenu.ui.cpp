@@ -83,7 +83,7 @@ int MainMenu::displaySubmenuImageSelection()
 
 int MainMenu::displayFilterMenu()
 {
-    clearScreen();
+    // clearScreen();
 
     int choice;
     do
