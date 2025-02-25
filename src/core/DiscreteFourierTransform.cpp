@@ -34,12 +34,24 @@ void DiscreteFourierTransform::computeDFT(ThreadManager::Mode mode, int numThrea
 
     copyMakeBorder(img, padded, 0, optimalRows - img.rows, 0, optimalCols - img.cols, BORDER_CONSTANT, Scalar::all(0));
     padded.convertTo(padded, CV_32F);
+
     Mat planes[] = {padded.clone(), Mat::zeros(padded.size(), CV_32F)};
     merge(planes, 2, complexImage);
+
+    // ✅ Step 1: Apply row-wise DFT using multi-threading
     ThreadManager::processImage(mode, numThreads, complexImage, [](Mat& region, int, int) {
-        dft(region, region);
+        dft(region, region, DFT_ROWS | DFT_COMPLEX_OUTPUT);
     });
+
+    // ✅ Step 2: Apply full column-wise DFT in **single-threaded mode**
+    for (int i = 0; i < complexImage.cols; i++) {
+        Mat column = complexImage.col(i);
+        dft(column, column, DFT_COMPLEX_OUTPUT);
+    }
 }
+
+
+
 
 void DiscreteFourierTransform::dftProcessing(Mat& image, int yStart, int yEnd) {
     Mat tempRegion = image.rowRange(yStart, yEnd).clone();
@@ -165,8 +177,8 @@ void DiscreteFourierTransform::benchmarkProcessing() {
     cout << "\n********** BENCHMARKING THREAD PERFORMANCE **********\n";
     cout << "Comparing Single-threaded, Multi-threaded, and Multi-threaded with Mutex...\n\n";
 
-    vector<ThreadManager::Mode> modes = {ThreadManager::SINGLE_THREAD, ThreadManager::MULTI_THREAD, ThreadManager::MULTI_THREAD_MUTEX};
-    vector<string> modeNames = {"Single-threaded", "Multi-threaded", "Multi-threaded with Mutex"};
+    vector<ThreadManager::Mode> modes = {ThreadManager::SINGLE_THREAD, ThreadManager::MULTI_THREAD};
+    vector<string> modeNames = {"Single-threaded", "Multi-threaded"};
 
     int numThreads = 4;
     vector<double> executionTimes;
