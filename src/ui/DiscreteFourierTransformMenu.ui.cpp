@@ -14,25 +14,38 @@ void DiscreteFourierTransformMenu::displayDFTMenu(Mat& image) {
     int choice;
     
     do {
-        cout << "\n********************\n";
-        cout << "* FOURIER TRANSFORM MENU *\n";
-        cout << "********************\n";
-        cout << "1. Compute DFT\n";
-        cout << "2. Compute Magnitude Spectrum\n";
-        cout << "3. Show Results\n";
-        cout << "4. Benchmark Processing Speed (All Modes)\n";
-        cout << "5. Exit\n";
+        cout << "\n"
+        << "       * * * * * * * * * * * * * * * * * * * * * * *\n"
+        << "       *                                           *\n"
+        << "       *         FOURIER TRANSFORM MENU            *\n"
+        << "       *                                           *\n"
+        << "       *      (1) Compute DFT                      *\n"
+        << "       *      (2) Compute Magnitude Spectrum       *\n"
+        << "       *      (3) Show Results                     *\n"
+        << "       *      (4) Benchmark Processing Speed       *\n"
+        << "       *      (5) Previous                         *\n"
+        << "       *      (6) Quit                             *\n"
+        << "       *                                           *\n"
+        << "       * * * * * * * * * * * * * * * * * * * * * * *\n\n";
         cout << "Choose an option: ";
         cin >> choice;
 
         switch (choice) {
             case 1: {
                 int modeChoice, numThreads = 1;
-                cout << "\nSelect processing mode:\n";
-                cout << "1. Single-threaded\n";
-                cout << "2. Multi-threaded\n";
-                cout << "3. Multi-threaded with Mutex\n";
-                cout << "Choose an option: ";
+                cout << "\n"
+                << "       * * * * * * * * * * * * * * * * * * * * * * *\n"
+                << "       *                                           *\n"
+                << "       *        SELECT PROCESSING MODE             *\n"
+                << "       *                                           *\n"
+                << "       *      (1) Single-threaded                  *\n"
+                << "       *      (2) Multi-threaded                   *\n"
+                << "       *      (3) Multi-threaded with Mutex        *\n"
+                << "       *                                           *\n"
+                << "       * * * * * * * * * * * * * * * * * * * * * * *\n\n";
+           
+           cout << "Choose an option: ";
+           
                 cin >> modeChoice;
 
                 ThreadManager::Mode mode;
