@@ -68,5 +68,17 @@
         "thread": "cpp",
         "typeinfo": "cpp",
         "variant": "cpp"
-    }
+    },
+    "makefile.configurations": [
+        {
+            "makefile-tools.makePath": "${workspaceFolder}/Makefile",
+            "makefile-tools.makefilePath": "${workspaceFolder}/Makefile",
+            "makefile-tools.configurations": {
+                "default": {
+                    "shell": "cmd.exe"
+                }
+            },
+            "name": "Unnamed configuration 1"
+        }
+    ]
 }
